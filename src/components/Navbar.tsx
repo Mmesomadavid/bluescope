@@ -47,7 +47,21 @@ const Navbar = () => {
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = () => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node
+      const mobileMenu = document.getElementById("mobile-menu")
+      const desktopMenu = document.getElementById("desktop-menu")
+
+      // Don't close if clicking inside the mobile menu
+      if (mobileMenu && mobileMenu.contains(target)) {
+        return
+      }
+
+      // Don't close if clicking inside the desktop menu and it's a desktop view
+      if (window.innerWidth >= 1024 && desktopMenu && desktopMenu.contains(target)) {
+        return
+      }
+
       setActiveDropdown(null)
     }
 
@@ -201,7 +215,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden lg:flex lg:items-center lg:justify-between lg:flex-grow ml-8">
+          <div id="desktop-menu" className="hidden lg:flex lg:items-center lg:justify-between lg:flex-grow ml-8">
             <ul className="flex items-center space-x-1">
               {navItems.map((item) => (
                 <li key={item.name} className="relative group">
@@ -309,7 +323,10 @@ const Navbar = () => {
 
         {/* Mobile navigation menu */}
         {isOpen && (
-          <div className="lg:hidden px-4 py-3 bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto">
+          <div
+            id="mobile-menu"
+            className="lg:hidden px-4 py-3 bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto"
+          >
             <ul className="space-y-1">
               {navItems.map((item) => (
                 <li key={item.name} className="rounded-md overflow-hidden">
@@ -333,7 +350,10 @@ const Navbar = () => {
 
                       {item.hasDropdown && (
                         <button
-                          onClick={() => toggleDropdown(item.name)}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            toggleDropdown(item.name)
+                          }}
                           className="p-2.5 text-gray-500 hover:bg-gray-50"
                         >
                           <ChevronDown
