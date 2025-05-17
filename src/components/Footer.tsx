@@ -4,9 +4,8 @@ import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 const Footer = () => {
   return (
     <footer className="bg-white pt-16 pb-8">
-
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {/* Useful Links */}
           <div>
@@ -66,11 +65,16 @@ const Footer = () => {
 
         {/* Bottom footer */}
         <div className="pt-8 border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <img src="https://bluescopeptyltd.club/assets/images/logoIcon/logo.png" alt="bluescope"  draggable="false" className="h-12 w-auto"  />
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-0">
+            <div className="flex justify-center md:justify-start mb-4 md:mb-0">
+              <img
+                src="https://bluescopeptyltd.club/assets/images/logoIcon/logo.png"
+                alt="bluescope"
+                draggable="false"
+                className="h-12 w-auto"
+              />
             </div>
-            <div className="flex space-x-4 mb-4 md:mb-0">
+            <div className="flex justify-center md:justify-center space-x-4 mb-4 md:mb-0">
               <Link to="https://facebook.com" className="text-gray-600 hover:text-blue-600">
                 <Facebook size={20} />
                 <span className="sr-only">Facebook</span>
@@ -89,14 +93,14 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center mt-4 pt-4 border-t border-gray-200 text-sm text-gray-500">
-            <div className="flex space-x-4 mb-4 md:mb-0">
+
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-6 pt-4 border-t border-gray-200 text-sm text-gray-500 gap-4 sm:gap-0">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-2 sm:mb-0">
               <Link to="/privacy-policy" className="hover:text-blue-600">Privacy Policy</Link>
               <Link to="/terms-of-service" className="hover:text-blue-600">Terms of Service</Link>
               <Link to="/cookie-policy" className="hover:text-blue-600">Cookie Policy</Link>
             </div>
-            <div>
+            <div className="text-center sm:text-right">
               © {new Date().getFullYear()} BlueScope. All rights reserved
             </div>
           </div>
