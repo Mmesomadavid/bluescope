@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Link, useLocation } from "react-router-dom"
-import {
-  Menu,
-  X,
-  Search,
-  ChevronDown,
-  ExternalLink,
-} from "lucide-react"
+import { Menu, X, Search, ChevronDown, ExternalLink } from "lucide-react"
 
 interface NavItem {
   name: string
@@ -85,7 +79,6 @@ const Navbar = () => {
           name: "Mining Operations",
           link: "/projects/mining",
           description: "Explore our innovative mining projects across Australia",
-
         },
         {
           name: "Agricultural Initiatives",
@@ -150,8 +143,8 @@ const Navbar = () => {
 
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "shadow-md" : ""}`}>
-      {/* Top navbar */}
-      <nav className="bg-white text-xs px-4 py-2">
+      {/* Top navbar - hidden on mobile */}
+      <nav className="bg-white text-xs px-4 py-2 hidden md:block">
         <div className="max-w-screen-xl mx-auto flex justify-end items-center space-x-3">
           <Link to="/news" className="hover:text-blue-600 px-1">
             News
@@ -174,8 +167,8 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Divider */}
-      <hr className="w-3/4 mx-auto border-gray-300" />
+      {/* Divider - also hidden on mobile */}
+      <hr className="w-3/4 mx-auto border-gray-300 hidden md:block" />
 
       {/* Main navbar */}
       <nav className="bg-white">
