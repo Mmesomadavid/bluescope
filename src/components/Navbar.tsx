@@ -35,8 +35,12 @@ const Navbar = () => {
   return (
     <header>
       {/* Top navbar */}
-      <nav className="bg-white text-xs px-4 py-2">
-        <div className="max-w-screen-xl mx-auto flex justify-end items-center space-x-3">
+     <nav className="bg-white text-xs px-2 py-2 hidden sm:block">
+        <div className="max-w-screen-xl mx-auto flex flex-row justify-end items-center gap-3">
+          <span className="text-gray-700 flex items-center">
+            Language: <span className="text-blue-500 ml-1">English</span>
+          </span>
+          <span className="h-5 border-l border-gray-300"></span>
           <Link to="/news" className="hover:text-blue-600 px-1">News</Link>
           <span className="h-5 border-l border-gray-300"></span>
           <Link to="/resources" className="hover:text-blue-600 px-1">Resources</Link>
@@ -44,7 +48,6 @@ const Navbar = () => {
           <Link to="/locations" className="hover:text-blue-600 px-1">Locations</Link>
           <span className="h-5 border-l border-gray-300"></span>
           <Link to="/contact" className="hover:text-blue-600 px-1">Contact</Link>
-          <span className="text-gray-700">Language: <span className='text-blue-500'>English</span></span>
         </div>
       </nav>
 
@@ -53,9 +56,9 @@ const Navbar = () => {
 
       {/* Main navbar */}
       <nav className="bg-white shadow-md">
-        <div className="max-w-screen-xl h-20 mx-auto px-4 py-2 flex justify-between items-center">
+        <div className="max-w-screen-xl h-20 mx-auto px-2 py-2 flex justify-between items-center">
           <Link to="/">
-            <img src="https://bluescopeptyltd.club/assets/images/logoIcon/logo.png" alt="blue scope" draggable="false" className="h-12 w-auto" />
+            <img src="https://bluescopeptyltd.club/assets/images/logoIcon/logo.png" alt="blue scope" draggable="false" className="h-12 w-32 object-contain" />
           </Link>
 
           {/* Mobile menu */}
@@ -79,8 +82,8 @@ const Navbar = () => {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden lg:flex lg:items-center lg:justify-between lg:flex-grow ml-8">
-            <ul className="flex items-center space-x-5 text-sm">
+          <div className="hidden lg:flex lg:items-center lg:justify-between lg:flex-grow ml-4">
+            <ul className="flex items-center space-x-4 text-sm">
               {navItems.map((item) => (
                 <li key={item.name} className="group relative">
                   <button
@@ -107,7 +110,7 @@ const Navbar = () => {
             </ul>
 
             {/* Search input */}
-            <div className="flex items-center ml-5">
+            <div className="flex items-center ml-4">
               <input
                 type="text"
                 placeholder="Search..."
@@ -119,7 +122,7 @@ const Navbar = () => {
 
         {/* Mobile search input */}
         {isSearchOpen && (
-          <div className="lg:hidden px-4 py-2">
+          <div className="lg:hidden px-2 py-2">
             <input
               type="text"
               placeholder="Search..."
@@ -130,7 +133,7 @@ const Navbar = () => {
 
         {/* Mobile navigation menu */}
         {isOpen && (
-          <div className="lg:hidden px-4 py-2 bg-white border-t border-gray-200">
+          <div className="lg:hidden px-2 py-2 bg-white border-t border-gray-200">
             <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.name}>
