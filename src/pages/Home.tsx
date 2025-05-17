@@ -192,8 +192,8 @@ const Home = () => {
             <p className="text-lg md:text-xl text-gray-200 mb-6">
               Leading innovation in mineral exploration, bringing vital resources from discovery to global markets.
             </p>
-            <button className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-lg font-medium transition-colors duration-300">
-              Learn More About Bluescope <ChevronRight className="ml-2" />
+            <button className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+              Learn More <ChevronRight className="ml-2" />
             </button>
           </div>
         </div>
