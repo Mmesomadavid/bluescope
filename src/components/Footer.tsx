@@ -47,16 +47,22 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold mb-4">Subscribe</h3>
             <p className="text-sm text-gray-600 mb-4">Join our community to receive updates</p>
-            <div className="flex">
+            <form
+              className="flex flex-col sm:flex-row w-full max-w-xs sm:max-w-none"
+              onSubmit={e => e.preventDefault()}
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-grow px-4 py-2 text-sm bg-gray-100 border border-gray-200 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 min-w-0 px-4 py-2 text-sm bg-gray-100 border border-gray-200 rounded-t-md sm:rounded-l-md sm:rounded-t-none focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button className="bg-blue-600 text-white px-4 py-2 text-sm font-medium rounded-r-md hover:bg-blue-700 transition-colors">
+              <button
+                type="submit"
+                className="bg-blue-600 text-white px-4 py-2 text-sm font-medium rounded-b-md sm:rounded-r-md sm:rounded-b-none hover:bg-blue-700 transition-colors"
+              >
                 Subscribe
               </button>
-            </div>
+            </form>
             <p className="text-xs text-gray-500 mt-2">
               By subscribing, you agree to our <Link to="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</Link>
             </p>
