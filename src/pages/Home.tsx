@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { ChevronRight, ChevronLeft, ArrowRight, Search, Download, Clock, DollarSign } from "lucide-react"
 
-
 const sections = [
   {
     id: "how",
@@ -189,11 +188,9 @@ const Home = () => {
         <div className="relative z-10 h-full flex items-center px-8 md:px-16 lg:px-24">
           <div className="text-white max-w-4xl">
             <h1 className="text-2xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
-              <span className="block md:inline whitespace-nowrap">
-                Pioneering Australia's Mineral Future
-              </span>
+              <span className="block md:inline whitespace-nowrap">Pioneering Australia's Mineral Future</span>
             </h1>
-             <p className="text-base md:text-lg text-gray-200 mb-6">
+            <p className="text-base md:text-lg text-gray-200 mb-6">
               Leading innovation in mineral exploration, bringing vital resources from discovery to global markets.
             </p>
             <button className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-300">
@@ -203,34 +200,57 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Sections Carousel */}
-      <section className="max-w-7xl mx-auto my-16 px-6">
-        <div className="relative bg-white rounded-lg overflow-hidden">
-          {/* Navigation buttons */}
-          <button
-            onClick={prevSection}
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
-            aria-label="Previous section"
-          >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
-          </button>
+      {/* Sections Carousel - Improved for mobile */}
+      <section className="max-w-7xl mx-auto my-8 md:my-16 px-4 md:px-6">
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+          {/* Mobile section selector */}
+          <div className="flex items-center justify-between border-b border-gray-200 p-4 md:hidden">
+            <button
+              onClick={prevSection}
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              aria-label="Previous section"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-700" />
+            </button>
 
-          <button
-            onClick={nextSection}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
-            aria-label="Next section"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
-          </button>
+            <span className="font-medium text-gray-900">
+              {activeSection + 1}/{sections.length}
+            </span>
 
-          <div className="p-8 md:p-12">
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16">
+            <button
+              onClick={nextSection}
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              aria-label="Next section"
+            >
+              <ChevronRight className="w-4 h-4 text-gray-700" />
+            </button>
+          </div>
+
+          <div className="relative p-4 md:p-8 lg:p-12">
+            {/* Desktop navigation buttons */}
+            <button
+              onClick={prevSection}
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+              aria-label="Previous section"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-700" />
+            </button>
+
+            <button
+              onClick={nextSection}
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+              aria-label="Next section"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-700" />
+            </button>
+
+            <div className="flex flex-col md:flex-row gap-6 md:gap-12">
               {/* Left column - Main content */}
               <div className="md:w-1/2">
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">{currentSection.title}</h2>
-                <div className="space-y-4">
+                <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900">{currentSection.title}</h2>
+                <div className="space-y-3 md:space-y-4">
                   {currentSection.content.mainText.map((paragraph, index) => (
-                    <p key={index} className="text-gray-700 leading-relaxed">
+                    <p key={index} className="text-sm md:text-base text-gray-700 leading-relaxed">
                       {paragraph}
                     </p>
                   ))}
@@ -238,12 +258,14 @@ const Home = () => {
               </div>
 
               {/* Right column - Quote */}
-              <div className="md:w-1/2 flex flex-col justify-center">
-                <div className="text-blue-500 text-6xl font-serif mb-4">"</div>
-                <blockquote className="text-xl md:text-2xl text-gray-800 font-medium mb-4">
-                  "{currentSection.content.quote}"
+              <div className="md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
+                <div className="text-4xl md:text-6xl text-blue-500 font-serif mb-2 md:mb-4">"</div>
+                <blockquote className="text-lg md:text-xl text-gray-800 font-medium mb-3 md:mb-4">
+                  {currentSection.content.quote}
                 </blockquote>
-                <div className="font-serif text-gray-600 italic">{currentSection.content.attribution}</div>
+                <div className="font-serif text-sm md:text-base text-gray-600 italic">
+                  {currentSection.content.attribution}
+                </div>
               </div>
             </div>
           </div>
@@ -251,11 +273,11 @@ const Home = () => {
       </section>
 
       {/* Business Areas Section */}
-      <section className="bg-background py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl font-semibold text-center mb-12">Our Business Areas</h2>
+      <section className="bg-gray-50 py-10 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <h2 className="text-3xl md:text-5xl font-semibold text-center mb-8 md:mb-12">Our Business Areas</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {businessAreas.map((area) => (
               <div
                 key={area.id}
@@ -264,11 +286,13 @@ const Home = () => {
                 <div className="h-48 overflow-hidden">
                   <img src={area.image || "/placeholder.svg"} alt={area.title} className="w-full h-full object-cover" />
                 </div>
-                <div className="p-6 flex flex-col h-64">
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900">{area.title}</h3>
-                  <p className="text-gray-700 flex-grow line-clamp-5">{area.description}</p>
+                <div className="p-5 md:p-6 flex flex-col h-auto md:h-64">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-gray-900">{area.title}</h3>
+                  <p className="text-sm md:text-base text-gray-700 flex-grow line-clamp-4 md:line-clamp-5">
+                    {area.description}
+                  </p>
                   <div className="mt-4 flex justify-end">
-                    <button className="text-blue-600 hover:text-blue-800 font-medium flex items-center transition-colors">
+                    <button className="text-blue-600 hover:text-blue-800 font-medium flex items-center transition-colors text-sm md:text-base">
                       Click Here for full details
                       <ArrowRight className="ml-1 w-4 h-4" />
                     </button>
@@ -281,27 +305,27 @@ const Home = () => {
       </section>
 
       {/* Recent Transactions Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-10 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
             {/* Header */}
-            <div className="bg-blue-600 text-white p-6">
+            <div className="bg-blue-600 text-white p-4 md:p-6">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                  <h2 className="text-2xl font-bold">Bluescope PTY LTD Recent Bulk Transactions</h2>
-                  <p className="text-blue-100 mt-1">Showing the latest verified transactions</p>
+                  <h2 className="text-xl md:text-2xl font-bold">Bluescope PTY LTD Recent Bulk Transactions</h2>
+                  <p className="text-blue-100 mt-1 text-sm md:text-base">Showing the latest verified transactions</p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full md:w-auto">
                   <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
                     <Download className="w-4 h-4 mr-2" />
                     Export
                   </button>
-                  <div className="relative">
+                  <div className="relative w-full sm:w-auto">
                     <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300" />
                     <input
                       type="text"
                       placeholder="Search transactions..."
-                      className="bg-white/10 hover:bg-white/20 focus:bg-white/20 text-white pl-10 pr-4 py-2 rounded-md text-sm w-full md:w-64 outline-none transition-colors"
+                      className="bg-white/10 hover:bg-white/20 focus:bg-white/20 text-white pl-10 pr-4 py-2 rounded-md text-sm w-full outline-none transition-colors"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
@@ -315,20 +339,24 @@ const Home = () => {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gray-50 text-left">
-                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-4 md:px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th className="px-4 md:px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Transaction Hash
                     </th>
-                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-4 md:px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Amount (USD)
                     </th>
-                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    <th className="px-4 md:px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Status
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {filteredTransactions.map((tx, index) => (
+                  {filteredTransactions.slice(0, 5).map((tx, index) => (
                     <tr key={tx.hash} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 md:px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">
                             {tx.name.charAt(0)}
@@ -342,16 +370,16 @@ const Home = () => {
                           </div>
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 md:px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900 font-mono">{formatHash(tx.hash)}</div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 md:px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900 flex items-center">
                           <DollarSign className="w-4 h-4 text-green-500 mr-1" />
                           {formatCurrency(tx.amount)}
                         </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 md:px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           {tx.status}
                         </span>
@@ -360,6 +388,19 @@ const Home = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Table footer with pagination */}
+            <div className="bg-gray-50 px-4 md:px-6 py-3 flex justify-between items-center border-t border-gray-200">
+              <div className="text-sm text-gray-500">Showing 5 of {filteredTransactions.length} transactions</div>
+              <div className="flex items-center space-x-2">
+                <button className="px-3 py-1 rounded border border-gray-300 text-gray-700 text-sm hover:bg-gray-50 transition-colors">
+                  Previous
+                </button>
+                <button className="px-3 py-1 rounded bg-blue-600 text-white text-sm hover:bg-blue-700 transition-colors">
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>

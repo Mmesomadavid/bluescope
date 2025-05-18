@@ -3,7 +3,7 @@ import { ArrowRight, Award, Users, Globe, Shield, Leaf } from "lucide-react"
 
 const About = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white overflow-x-hidden">
       {/* Hero Section */}
       <div className="relative h-[320px] md:h-[300px] flex items-center">
         <img
@@ -11,7 +11,7 @@ const About = () => {
           alt="About Us Banner"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 bg-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-transparent"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-start h-full py-12">
           <div className="text-left">
             <h1 className="text-4xl md:text-7xl font-semibold text-white mb-4">About Us</h1>
@@ -22,7 +22,6 @@ const About = () => {
         </div>
       </div>
 
-      
       {/* Our Mission Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,74 +125,6 @@ const About = () => {
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Team Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">Our Leadership Team</h2>
-          <p className="text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12">
-            Led by industry experts with decades of experience in resource development, our leadership team is committed
-            to driving sustainable growth and innovation.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Michael Thompson",
-                title: "Chief Executive Officer",
-                bio: "With over 25 years of experience in the mining industry, Michael leads BlueScope's strategic vision and operations.",
-                image: "/placeholder.svg?height=300&width=300&text=CEO",
-              },
-              {
-                name: "Sarah Johnson",
-                title: "Chief Operations Officer",
-                bio: "Sarah oversees all operational aspects of BlueScope's mining and agricultural projects across Australia.",
-                image: "/placeholder.svg?height=300&width=300&text=COO",
-              },
-              {
-                name: "David Chen",
-                title: "Chief Technology Officer",
-                bio: "David leads our innovation initiatives, focusing on sustainable mining technologies and digital transformation.",
-                image: "/placeholder.svg?height=300&width=300&text=CTO",
-              },
-              {
-                name: "Emily Williams",
-                title: "Chief Sustainability Officer",
-                bio: "Emily ensures that environmental responsibility is integrated into every aspect of our operations.",
-                image: "/placeholder.svg?height=300&width=300&text=CSO",
-              },
-              {
-                name: "Robert Patel",
-                title: "Chief Financial Officer",
-                bio: "Robert manages BlueScope's financial strategy, investor relations, and sustainable growth initiatives.",
-                image: "/placeholder.svg?height=300&width=300&text=CFO",
-              },
-              {
-                name: "Lisa Nguyen",
-                title: "Director of Community Relations",
-                bio: "Lisa builds and maintains our relationships with local communities and Traditional Owner groups.",
-                image: "/placeholder.svg?height=300&width=300&text=DCR",
-              },
-            ].map((leader, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg"
-              >
-                <img
-                  src={leader.image || "/placeholder.svg"}
-                  alt={leader.name}
-                  className="w-full h-64 object-cover object-center"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900">{leader.name}</h3>
-                  <p className="text-blue-600 font-medium mb-3">{leader.title}</p>
-                  <p className="text-gray-600 text-sm">{leader.bio}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,21 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { Menu, X, Search, ChevronDown, ExternalLink } from "lucide-react"
-
-interface NavItem {
-  name: string
-  link: string
-  hasDropdown?: boolean
-  dropdownItems?: DropdownItem[]
-}
-
-interface DropdownItem {
-  name: string
-  link: string
-  description: string
-}
+import { Menu, X, Search, ChevronDown, ChevronRight } from "lucide-react"
+import { navItems } from "../constants/navigation"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,6 +11,8 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  const navRef = useRef<HTMLUListElement>(null)
 
   const toggleMenu = () => setIsOpen(!isOpen)
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen)
@@ -45,118 +35,45 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node
-      const mobileMenu = document.getElementById("mobile-menu")
-      const desktopMenu = document.getElementById("desktop-menu")
-
-      // Don't close if clicking inside the mobile menu
-      if (mobileMenu && mobileMenu.contains(target)) {
-        return
-      }
-
-      // Don't close if clicking inside the desktop menu and it's a desktop view
-      if (window.innerWidth >= 1024 && desktopMenu && desktopMenu.contains(target)) {
-        return
-      }
-
-      setActiveDropdown(null)
-    }
-
-    document.addEventListener("click", handleClickOutside)
-    return () => document.removeEventListener("click", handleClickOutside)
-  }, [])
-
   // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false)
     setActiveDropdown(null)
   }, [location])
 
-  const navItems: NavItem[] = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "About Us",
-      link: "/about",
-    },
-    {
-      name: "Our Projects",
-      link: "/projects",
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: "Mining Operations",
-          link: "/projects/mining",
-          description: "Explore our innovative mining projects across Australia",
-        },
-        {
-          name: "Agricultural Initiatives",
-          link: "/projects/agriculture",
-          description: "Sustainable farming and agricultural development",
-        },
-        {
-          name: "Energy Solutions",
-          link: "/projects/energy",
-          description: "Next-generation energy and resource management",
-        },
-      ],
-    },
-    {
-      name: "BSP Annual Report",
-      link: "/annual-report",
-    },
-    {
-      name: "Members Area",
-      link: "/login",
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: "Login",
-          link: "/login",
-          description: "Access your member account",
-        },
-        {
-          name: "Sign Up",
-          link: "/signup",
-          description: "Create a new member account",
-        },
-      ],
-    },
-    {
-      name: "Support",
-      link: "/support",
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: "Help Center",
-          link: "/support/help",
-          description: "Find answers to common questions",
-        },
-        {
-          name: "Contact Us",
-          link: "/support/contact",
-          description: "Get in touch with our support team",
-        },
-        {
-          name: "Resources",
-          link: "/support/resources",
-          description: "Access guides, documents and FAQs",
-        },
-      ],
-    },
-    {
-      name: "Events",
-      link: "/events",
-    },
-  ]
+  // Adjust dropdown position to prevent overflow
+  useEffect(() => {
+    const handleResize = () => {
+      Object.keys(dropdownRefs.current).forEach((key) => {
+        const dropdown = dropdownRefs.current[key]
+        if (dropdown) {
+          // Reset position first
+          dropdown.style.left = "0"
+          dropdown.style.right = "auto"
+
+          const rect = dropdown.getBoundingClientRect()
+          const overflowRight = rect.right > window.innerWidth
+
+          if (overflowRight) {
+            const overflowAmount = rect.right - window.innerWidth
+            dropdown.style.left = `${-overflowAmount - 20}px` // 20px buffer
+          }
+        }
+      })
+    }
+
+    // Run on mount and when activeDropdown changes
+    handleResize()
+
+    // Also run on window resize
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [activeDropdown])
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "shadow-md" : ""}`}>
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "shadow-md" : ""} bg-white overflow-visible`}
+    >
       {/* Top navbar - hidden on mobile */}
       <nav className="bg-white text-xs px-4 py-2 hidden md:block">
         <div className="max-w-screen-xl mx-auto flex justify-end items-center space-x-3">
@@ -216,38 +133,23 @@ const Navbar = () => {
 
           {/* Desktop menu */}
           <div id="desktop-menu" className="hidden lg:flex lg:items-center lg:justify-between lg:flex-grow ml-8">
-            <ul className="flex items-center space-x-1">
+            <ul ref={navRef} className="flex items-center justify-between w-full max-w-3xl">
               {navItems.map((item) => (
                 <li key={item.name} className="relative group">
-                  <div
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      if (item.hasDropdown) {
-                        toggleDropdown(item.name)
-                      }
-                    }}
-                    className="relative"
-                  >
+                  <div className="relative">
                     <Link
-                      to={item.hasDropdown ? "#" : item.link}
+                      to={item.link}
                       className={`px-3 py-2 rounded-md text-sm font-medium flex items-center transition-colors ${
                         location.pathname === item.link
                           ? "text-blue-600"
                           : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
                       }`}
-                      onClick={(e) => {
-                        if (item.hasDropdown) {
-                          e.preventDefault()
-                        }
-                      }}
                     >
                       {item.name}
                       {item.hasDropdown && (
                         <ChevronDown
                           size={16}
-                          className={`ml-1 transition-transform duration-200 ${
-                            activeDropdown === item.name ? "rotate-180" : ""
-                          }`}
+                          className="ml-1 transition-transform duration-200 group-hover:rotate-180"
                         />
                       )}
                     </Link>
@@ -258,34 +160,57 @@ const Navbar = () => {
                     )}
                   </div>
 
-                  {/* Enhanced dropdown with visual cards */}
-                  {item.hasDropdown && activeDropdown === item.name && (
+                  {/* Enhanced dropdown with visual cards - BlueScope style - HOVER VERSION */}
+                  {item.hasDropdown && item.dropdownCategory && (
                     <div
-                      className="absolute left-0 mt-2 w-[600px] bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50"
-                      onClick={(e) => e.stopPropagation()}
+                      className="fixed mt-2 w-[600px] md:w-[700px] lg:w-[800px] bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out"
+                      style={{ maxWidth: "calc(100vw - 40px)" }}
                     >
-                      <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {item.dropdownItems?.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            to={dropdownItem.link}
-                            className="flex flex-col p-3 rounded-lg hover:bg-gray-50 transition-colors group"
-                          >
-                            <h4 className="text-sm font-medium text-gray-900 group-hover:text-blue-600">
-                              {dropdownItem.name}
-                            </h4>
-                            <p className="text-xs text-gray-500 mt-1 line-clamp-2">{dropdownItem.description}</p>
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="bg-gray-50 px-4 py-2 border-t border-gray-200">
-                        <Link
-                          to={item.link}
-                          className="text-xs text-blue-600 hover:text-blue-800 font-medium flex items-center"
+                      <div className="flex flex-col md:flex-row">
+                        {/* Left sidebar with category title and description - WITH BACKGROUND IMAGE */}
+                        <div
+                          className={`w-full md:w-1/3 ${item.dropdownCategory.color} text-white p-6 md:p-8 flex flex-col justify-between relative`}
+                          style={{
+                            backgroundImage: item.dropdownCategory.image
+                              ? `url(${item.dropdownCategory.image})`
+                              : "none",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                          }}
                         >
-                          View all {item.name.toLowerCase()}
-                          <ExternalLink size={12} className="ml-1" />
-                        </Link>
+                          {/* Dark overlay for better text readability */}
+                          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+                          <div className="relative z-10">
+                            <h2 className="text-xl md:text-2xl font-bold mb-4">{item.dropdownCategory.title}</h2>
+                            <p className="text-sm leading-relaxed">{item.dropdownCategory.description}</p>
+                          </div>
+                          <div className="mt-6 relative z-10">
+                            <Link
+                              to={item.link}
+                              className="inline-block px-4 py-2 bg-white/20 hover:bg-white/30 rounded-md text-sm font-medium transition-colors"
+                            >
+                              Read more
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* Right side with menu items - NO IMAGES */}
+                        <div className="w-full md:w-2/3 p-4 md:p-6">
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
+                            {item.dropdownCategory.items.map((dropdownItem) => (
+                              <li key={dropdownItem.name}>
+                                <Link
+                                  to={dropdownItem.link}
+                                  className="flex items-center px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-blue-600 transition-colors"
+                                >
+                                  <span className="text-sm font-medium">{dropdownItem.name}</span>
+                                  <ChevronRight size={16} className="ml-auto text-gray-400" />
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -368,20 +293,39 @@ const Navbar = () => {
                   </div>
 
                   {/* Mobile dropdown with visual elements */}
-                  {item.hasDropdown && activeDropdown === item.name && (
-                    <div className="bg-gray-50 py-2 px-3 border-t border-gray-100">
-                      {item.dropdownItems?.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          to={dropdownItem.link}
-                          className="flex items-start py-3 hover:bg-gray-100 rounded-md px-2 transition-colors"
-                        >
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-900">{dropdownItem.name}</h4>
-                            <p className="text-xs text-gray-500 mt-0.5">{dropdownItem.description}</p>
-                          </div>
-                        </Link>
-                      ))}
+                  {item.hasDropdown && activeDropdown === item.name && item.dropdownCategory && (
+                    <div className="bg-gray-50 border-t border-gray-100">
+                      {/* Category header for mobile with background image */}
+                      <div
+                        className={`${item.dropdownCategory.color} text-white p-4 relative`}
+                        style={{
+                          backgroundImage: item.dropdownCategory.image ? `url(${item.dropdownCategory.image})` : "none",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      >
+                        {/* Dark overlay for better text readability */}
+                        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+
+                        <div className="relative z-10">
+                          <h3 className="text-lg font-bold mb-1">{item.dropdownCategory.title}</h3>
+                          <p className="text-xs text-white/80">{item.dropdownCategory.description}</p>
+                        </div>
+                      </div>
+
+                      {/* Menu items for mobile */}
+                      <div className="py-2 px-3">
+                        {item.dropdownCategory.items.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.name}
+                            to={dropdownItem.link}
+                            className="flex items-center justify-between py-3 px-3 hover:bg-gray-100 rounded-md transition-colors"
+                          >
+                            <span className="text-sm font-medium text-gray-900">{dropdownItem.name}</span>
+                            <ChevronRight size={16} className="text-gray-500" />
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </li>
