@@ -1,5 +1,6 @@
 /* Font family */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
 
 *{
   margin: 0;
@@ -16,7 +17,7 @@ body, html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Geist', sans-serif;
 }
 
 

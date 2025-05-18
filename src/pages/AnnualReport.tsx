@@ -61,7 +61,7 @@ const AnnualReport = () => {
     <div className="bg-white">
       {/* Hero Section with Background Image */}
       <div 
-        className="relative text-white py-20" 
+        className="relative text-white py-12 sm:py-16 md:py-20"
         style={{
           backgroundImage: "url('https://bluescopeptyltd.club/homelink/wp-content/uploads/2022/08/webinaarrr.jpg')",
           backgroundSize: "cover",
@@ -69,39 +69,43 @@ const AnnualReport = () => {
           backgroundAttachment: "fixed"
         }}
       >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div>
-              <h1 className="text-3xl md:text-5xl font-bold mb-2">Q3 2023 Annual Report</h1>
-              <p className="text-blue-200 text-lg md:text-xl">Bluescopepty's Performance Overview</p>
-            </div>
-            <div className="mt-6 md:mt-0 flex space-x-3">
-              <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
-                <Download className="w-4 h-4 mr-2" />
-                Download PDF
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
-                <Printer className="w-4 h-4 mr-2" />
-                Print
-              </button>
-              <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
-                <Share2 className="w-4 h-4 mr-2" />
-                Share
-              </button>
-            </div>
-          </div>
-          
-          {/* Added subtitle */}
-          <div className="mt-8 max-w-3xl">
-            <p className="text-lg text-blue-100">
-              Delivering strong financial results through strategic investments and operational excellence in our diversified portfolio.
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+  
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2">
+              Q3 2023 Annual Report
+            </h1>
+            <p className="text-blue-200 text-base sm:text-lg md:text-xl">
+              Bluescopepty's Performance Overview
             </p>
           </div>
+          <div className="mt-6 md:mt-0 flex space-x-3">
+            <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
+              <Download className="w-4 h-4 mr-2" />
+              Download PDF
+            </button>
+            <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
+              <Printer className="w-4 h-4 mr-2" />
+              Print
+            </button>
+            <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share
+            </button>
+          </div>
+        </div>
+    
+        {/* Added subtitle */}
+        <div className="mt-8 max-w-3xl">
+          <p className="text-base sm:text-lg text-blue-100">
+            Delivering strong financial results through strategic investments and operational excellence in our diversified portfolio.
+          </p>
         </div>
       </div>
+    </div>
 
       {/* Financial Highlights */}
       <section className="py-12 bg-gray-50">
