@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
     dropdownCategory: {
       title: "Our Projects",
       description: "Explore BlueScope's diverse portfolio of projects across mining, agriculture, and energy sectors.",
-      color: "bg-green-700",
+      color: "bg-blue-400",
       image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/projects-bg.jpg",
       items: [
         {
@@ -73,7 +73,7 @@ export const navItems: NavItem[] = [
     dropdownCategory: {
       title: "Members Area",
       description: "Access exclusive resources and services available only to BlueScope members.",
-      color: "bg-purple-700",
+      color: "bg-blue-400",
       image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/members-bg.jpg",
       items: [
         {
@@ -96,7 +96,7 @@ export const navItems: NavItem[] = [
     dropdownCategory: {
       title: "Support",
       description: "Find the assistance you need with our comprehensive support resources and contact options.",
-      color: "bg-orange-700",
+      color: "bg-blue-400",
       image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/support-bg.jpg",
       items: [
         {

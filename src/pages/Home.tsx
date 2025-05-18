@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronRight, ChevronLeft, ArrowRight, Search, Download, Clock, DollarSign } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -148,7 +148,11 @@ const transactions: Transaction[] = [
 const Home = () => {
   const [activeSection, setActiveSection] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
+  const [isVisible, setIsVisible] = useState(false)
 
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
 
   const nextSection = () => {
     setActiveSection((prev) => (prev === sections.length - 1 ? 0 : prev + 1))
@@ -215,24 +219,25 @@ const Home = () => {
         initial="hidden"
         animate="visible"
         variants={fadeIn}
-        className="relative h-[70vh] bg-cover bg-center bg-[url('https://bluescopeptyltd.club/homelink/wp-content/uploads/2022/08/webinar.jpg')]"
+        className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] bg-cover bg-center bg-[url('https://bluescopeptyltd.club/homelink/wp-content/uploads/2022/08/webinar.jpg')]"
       >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-        <div className="relative z-10 h-full flex items-center px-8 md:px-16 lg:px-24">
+        <div className="relative z-10 h-full flex items-center px-4 sm:px-8 md:px-16 lg:px-24">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white max-w-4xl"
           >
-            <h1 className="text-2xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
-              <span className="block md:inline whitespace-nowrap">Pioneering Australia's Mineral Future</span>
+            <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4 leading-tight tracking-tight">
+              <span className="block md:inline">Pioneering Australia's</span>
+              <span className="block md:inline"> Mineral Future</span>
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-base md:text-lg text-gray-200 mb-6"
+              className="text-sm sm:text-base md:text-lg text-gray-200 mb-4 sm:mb-6 max-w-md sm:max-w-lg md:max-w-2xl"
             >
               Leading innovation in mineral exploration, bringing vital resources from discovery to global markets.
             </motion.p>
@@ -242,9 +247,9 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+              className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-4 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors duration-300"
             >
-              Learn More <ChevronRight className="ml-2" />
+              Learn More <ChevronRight className="ml-2 w-4 h-4" />
             </motion.button>
           </motion.div>
         </div>
