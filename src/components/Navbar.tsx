@@ -176,8 +176,12 @@ const Navbar = () => {
                   {/* Enhanced dropdown with visual cards - BlueScope style - HOVER VERSION */}
                   {item.hasDropdown && item.dropdownCategory && (
                     <div
-                      className="fixed mt-2 w-[600px] md:w-[700px] lg:w-[800px] bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out"
-                      style={{ maxWidth: "calc(100vw - 40px)" }}
+                      className="absolute mt-2 w-[600px] md:w-[700px] lg:w-[800px] bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out"
+                      style={{
+                        maxWidth: "calc(100vw - 40px)",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                      }}
                     >
                       <div className="flex flex-col md:flex-row">
                         {/* Left sidebar with category title and description - WITH BACKGROUND IMAGE */}

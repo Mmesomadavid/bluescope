@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ChevronRight, ChevronLeft, ArrowRight, Search, Download, Clock, DollarSign } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const sections = [
   {
@@ -148,6 +149,7 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
 
+
   const nextSection = () => {
     setActiveSection((prev) => (prev === sections.length - 1 ? 0 : prev + 1))
   }
@@ -180,29 +182,82 @@ const Home = () => {
     }).format(amount)
   }
 
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.6 } },
+  }
+
+  const slideUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const cardVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative h-[70vh] bg-cover bg-center bg-[url('https://bluescopeptyltd.club/homelink/wp-content/uploads/2022/08/webinar.jpg')]">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="relative h-[70vh] bg-cover bg-center bg-[url('https://bluescopeptyltd.club/homelink/wp-content/uploads/2022/08/webinar.jpg')]"
+      >
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         <div className="relative z-10 h-full flex items-center px-8 md:px-16 lg:px-24">
-          <div className="text-white max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-white max-w-4xl"
+          >
             <h1 className="text-2xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
               <span className="block md:inline whitespace-nowrap">Pioneering Australia's Mineral Future</span>
             </h1>
-            <p className="text-base md:text-lg text-gray-200 mb-6">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-base md:text-lg text-gray-200 mb-6"
+            >
               Leading innovation in mineral exploration, bringing vital resources from discovery to global markets.
-            </p>
-            <button className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-300">
+            </motion.p>
+            <motion.button
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-300"
+            >
               Learn More <ChevronRight className="ml-2" />
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Sections Carousel - Improved for mobile */}
       <section className="max-w-7xl mx-auto my-8 md:my-16 px-4 md:px-6">
-        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={slideUp}
+          className="bg-white rounded-lg shadow-sm overflow-hidden"
+        >
           {/* Mobile section selector */}
           <div className="flex items-center justify-between border-b border-gray-200 p-4 md:hidden">
             <button
@@ -244,44 +299,69 @@ const Home = () => {
               <ChevronRight className="w-5 h-5 text-gray-700" />
             </button>
 
-            <div className="flex flex-col md:flex-row gap-6 md:gap-12">
-              {/* Left column - Main content */}
-              <div className="md:w-1/2">
-                <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900">{currentSection.title}</h2>
-                <div className="space-y-3 md:space-y-4">
-                  {currentSection.content.mainText.map((paragraph, index) => (
-                    <p key={index} className="text-sm md:text-base text-gray-700 leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSection}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col md:flex-row gap-6 md:gap-12"
+              >
+                {/* Left column - Main content */}
+                <div className="md:w-1/2">
+                  <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900">{currentSection.title}</h2>
+                  <div className="space-y-3 md:space-y-4">
+                    {currentSection.content.mainText.map((paragraph, index) => (
+                      <p key={index} className="text-sm md:text-base text-gray-700 leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Right column - Quote */}
-              <div className="md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
-                <div className="text-4xl md:text-6xl text-blue-500 font-serif mb-2 md:mb-4">"</div>
-                <blockquote className="text-lg md:text-xl text-gray-800 font-medium mb-3 md:mb-4">
-                  {currentSection.content.quote}
-                </blockquote>
-                <div className="font-serif text-sm md:text-base text-gray-600 italic">
-                  {currentSection.content.attribution}
+                {/* Right column - Quote */}
+                <div className="md:w-1/2 flex flex-col justify-center mt-6 md:mt-0">
+                  <div className="text-4xl md:text-6xl text-blue-500 font-serif mb-2 md:mb-4">"</div>
+                  <blockquote className="text-lg md:text-xl text-gray-800 font-medium mb-3 md:mb-4">
+                    {currentSection.content.quote}
+                  </blockquote>
+                  <div className="font-serif text-sm md:text-base text-gray-600 italic">
+                    {currentSection.content.attribution}
+                  </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Business Areas Section */}
-      <section className="bg-gray-50 py-10 md:py-16">
+      <section className="bg-gray-50 py-10 md:py-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-5xl font-semibold text-center mb-8 md:mb-12">Our Business Areas</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-semibold text-center mb-8 md:mb-12"
+          >
+            Our Business Areas
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          >
             {businessAreas.map((area) => (
-              <div
+              <motion.div
                 key={area.id}
-                className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                variants={cardVariant}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:shadow-xl"
               >
                 <div className="h-48 overflow-hidden">
                   <img src={area.image || "/placeholder.svg"} alt={area.title} className="w-full h-full object-cover" />
@@ -292,22 +372,31 @@ const Home = () => {
                     {area.description}
                   </p>
                   <div className="mt-4 flex justify-end">
-                    <button className="text-blue-600 hover:text-blue-800 font-medium flex items-center transition-colors text-sm md:text-base">
+                    <motion.button
+                      whileHover={{ x: 5 }}
+                      className="text-blue-600 hover:text-blue-800 font-medium flex items-center transition-colors text-sm md:text-base"
+                    >
                       Click Here for full details
                       <ArrowRight className="ml-1 w-4 h-4" />
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Recent Transactions Section */}
-      <section className="py-10 md:py-16 bg-white">
+      <section className="py-10 md:py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+          >
             {/* Header */}
             <div className="bg-blue-600 text-white p-4 md:p-6">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -316,10 +405,14 @@ const Home = () => {
                   <p className="text-blue-100 mt-1 text-sm md:text-base">Showing the latest verified transactions</p>
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full md:w-auto">
-                  <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-md flex items-center text-sm font-medium transition-colors"
+                  >
                     <Download className="w-4 h-4 mr-2" />
                     Export
-                  </button>
+                  </motion.button>
                   <div className="relative w-full sm:w-auto">
                     <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300" />
                     <input
@@ -355,7 +448,13 @@ const Home = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {filteredTransactions.slice(0, 5).map((tx, index) => (
-                    <tr key={tx.hash} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <motion.tr
+                      key={tx.hash}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                    >
                       <td className="px-4 md:px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-medium">
@@ -384,7 +483,7 @@ const Home = () => {
                           {tx.status}
                         </span>
                       </td>
-                    </tr>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>
@@ -394,15 +493,23 @@ const Home = () => {
             <div className="bg-gray-50 px-4 md:px-6 py-3 flex justify-between items-center border-t border-gray-200">
               <div className="text-sm text-gray-500">Showing 5 of {filteredTransactions.length} transactions</div>
               <div className="flex items-center space-x-2">
-                <button className="px-3 py-1 rounded border border-gray-300 text-gray-700 text-sm hover:bg-gray-50 transition-colors">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-3 py-1 rounded border border-gray-300 text-gray-700 text-sm hover:bg-gray-50 transition-colors"
+                >
                   Previous
-                </button>
-                <button className="px-3 py-1 rounded bg-blue-600 text-white text-sm hover:bg-blue-700 transition-colors">
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-3 py-1 rounded bg-blue-600 text-white text-sm hover:bg-blue-700 transition-colors"
+                >
                   Next
-                </button>
+                </motion.button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
