@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
     dropdownCategory: {
       title: "Our Projects",
       description: "Explore BlueScope's diverse portfolio of projects across mining, agriculture, and energy sectors.",
-      color: "bg-green-700",
+    color: "bg-green-700",
       image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/projects-bg.jpg",
       items: [
         {
@@ -100,7 +100,7 @@ export const navItems: NavItem[] = [
       image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/support-bg.jpg",
       items: [
         {
-          name: "Help Center",
+          name: "Contact",
           link: "/support/help",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/help.jpg",
         },

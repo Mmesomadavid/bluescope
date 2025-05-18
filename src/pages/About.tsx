@@ -60,7 +60,7 @@ const About = () => {
             </div>
             <div className="md:w-1/2 order-1 md:order-2">
               <img
-                src="/placeholder.svg?height=400&width=600&text=Innovation+Image"
+                src="https://www.bluescope.com/adobe/dynamicmedia/deliver/dm-aid--fd2e172b-6e4a-4b88-9274-b49c15ffdb30/bg.png?quality=82&width=740&preferwebp=truee"
                 alt="Innovation at BlueScope"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
@@ -71,7 +71,7 @@ const About = () => {
           <div className="flex flex-col md:flex-row items-center mb-24 gap-8">
             <div className="md:w-1/2">
               <img
-                src="/placeholder.svg?height=400&width=600&text=Community+Image"
+                src="https://www.bluescope.com/adobe/dynamicmedia/deliver/dm-aid--89175277-2b8d-42d3-bdbf-f75f55063429/our-people-are-our-strength.jpg?quality=82&width=740&preferwebp=true"
                 alt="BlueScope community initiatives"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
@@ -120,7 +120,7 @@ const About = () => {
             </div>
             <div className="md:w-1/2 order-1 md:order-2">
               <img
-                src="/placeholder.svg?height=400&width=600&text=Global+Operations+Image"
+                src="https://images.pexels.com/photos/2255801/pexels-photo-2255801.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="BlueScope global operations"
                 className="rounded-lg shadow-lg w-full h-auto object-cover"
               />
