@@ -15,16 +15,12 @@ const Mining = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-transparent"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-left">
-            <h1 className="text-2xl xs:text-3xl md:text-6xl font-bold text-white mb-3 leading-tight tracking-tight">
-              <span className="whitespace-nowrap block">
-                Mining Operations
-              </span>
+          <div className="text-left pt-8 pb-6 md:py-0">
+            <h1 className="text-xl sm:text-2xl md:text-6xl font-bold text-white mb-3 leading-tight tracking-tight">
+              Mining Operations
             </h1>
-            <p className="text-sm xs:text-base md:text-xl text-blue-100 max-w-[90vw] md:max-w-2xl break-words">
-              <span className="whitespace-nowrap block">
-                Pioneering sustainable mining practices with a commitment to community and environmental responsibility.
-              </span>
+            <p className="text-sm sm:text-base md:text-xl text-blue-100 max-w-xs sm:max-w-md md:max-w-2xl break-words">
+              Pioneering sustainable mining practices with a commitment to community and environmental responsibility.
             </p>
           </div>
         </div>
