@@ -15,6 +15,8 @@ import Login from './pages/Auth/Login';
 import Signup from './pages/Signup';
 import Mining from './pages/Mining';
 import Agriculture from './pages/Agriculture';
+import Philanthropy from './pages/Philanthropy';
+import OilAndGas from './pages/Oil&Gas';
 
 function App() {
   return (
@@ -26,9 +28,11 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/annual-report" element={<AnnualReport />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/projects" element={<Mining />} />
-        <Route path="/projects" element={<Agriculture />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/mining" element={<Mining />} />
+        <Route path="/agriculture" element={<Agriculture />} />
+        <Route path="/oil-and-gas" element={<OilAndGas />} />
+        <Route path="/philanthropy" element={<Philanthropy />} />
         <Route path="/support" element={<Support />} />
 
         {/* Authentication Routes */}
