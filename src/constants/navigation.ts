@@ -41,22 +41,22 @@ export const navItems: NavItem[] = [
       items: [
         {
           name: "Mining",
-          link: "/projects/mining",
+          link: "/mining",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/mining.jpg",
         },
         {
           name: "Agriculture",
-          link: "/projects/agriculture",
+          link: "/agriculture",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/agriculture.jpg",
         },
         {
           name: "Oil & Gas",
-          link: "/projects/energy",
+          link: "/oil-and-gas",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/energy.jpg",
         },
         {
           name: "Philanthropy",
-          link: "/projects/infrastructure",
+          link: "/philanthropy",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/infrastructure.jpg",
         },
       ],
