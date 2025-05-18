@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ChevronRight, ChevronLeft, ArrowRight, Search, Download, Clock, DollarSign } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -148,11 +148,6 @@ const transactions: Transaction[] = [
 const Home = () => {
   const [activeSection, setActiveSection] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   const nextSection = () => {
     setActiveSection((prev) => (prev === sections.length - 1 ? 0 : prev + 1))
