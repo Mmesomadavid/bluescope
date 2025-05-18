@@ -7,7 +7,7 @@ const Mining = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative h-[300px] md:h-[400px] flex items-center">
+      <div className="relative h-[260px] md:h-[400px] flex items-center">
         <img
           src="https://images.pexels.com/photos/2101135/pexels-photo-2101135.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt="Mining Operations"
@@ -15,10 +15,16 @@ const Mining = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-transparent"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Mining Operations</h1>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto md:mx-0">
-              Pioneering sustainable mining practices with a commitment to community and environmental responsibility.
+          <div className="text-left">
+            <h1 className="text-2xl xs:text-3xl md:text-6xl font-bold text-white mb-3 leading-tight tracking-tight">
+              <span className="whitespace-nowrap block">
+                Mining Operations
+              </span>
+            </h1>
+            <p className="text-sm xs:text-base md:text-xl text-blue-100 max-w-[90vw] md:max-w-2xl break-words">
+              <span className="whitespace-nowrap block">
+                Pioneering sustainable mining practices with a commitment to community and environmental responsibility.
+              </span>
             </p>
           </div>
         </div>
