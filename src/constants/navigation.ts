@@ -15,7 +15,7 @@ export interface NavCategory {
 
 export interface NavItem {
   name: string
-  link: string
+  link?: string // Made optional for dropdown-only items
   hasDropdown?: boolean
   dropdownCategory?: NavCategory
 }
@@ -31,12 +31,12 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Our Projects",
-    link: "/projects",
+    // Removed link for dropdown-only items
     hasDropdown: true,
     dropdownCategory: {
       title: "Our Projects",
       description: "Explore BlueScope's diverse portfolio of projects across mining, agriculture, and energy sectors.",
-    color: "bg-green-700",
+      color: "bg-green-700",
       image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/projects-bg.jpg",
       items: [
         {
@@ -55,7 +55,7 @@ export const navItems: NavItem[] = [
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/energy.jpg",
         },
         {
-          name: "Philantropy",
+          name: "Philanthropy",
           link: "/projects/infrastructure",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/infrastructure.jpg",
         },
@@ -68,7 +68,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Members Area",
-    link: "/login",
+    // Removed link for dropdown-only items
     hasDropdown: true,
     dropdownCategory: {
       title: "Members Area",
@@ -91,7 +91,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Support",
-    link: "/support",
+    // Removed link for dropdown-only items
     hasDropdown: true,
     dropdownCategory: {
       title: "Support",
@@ -101,7 +101,7 @@ export const navItems: NavItem[] = [
       items: [
         {
           name: "Contact",
-          link: "/support/help",
+          link: "/support",
           image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/help.jpg",
         },
       ],

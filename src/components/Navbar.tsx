@@ -137,25 +137,38 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <li key={item.name} className="relative group">
                   <div className="relative">
-                    <Link
-                      to={item.link}
-                      className={`px-3 py-2 rounded-md text-sm font-medium flex items-center transition-colors ${
-                        location.pathname === item.link
-                          ? "text-blue-600"
-                          : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
-                      }`}
-                    >
-                      {item.name}
-                      {item.hasDropdown && (
+                    {item.hasDropdown ? (
+                      // If it has a dropdown, make it a button instead of a link
+                      <button
+                        className={`px-3 py-2 rounded-md text-sm font-medium flex items-center transition-colors text-gray-800 hover:text-blue-600 hover:bg-gray-50`}
+                        onClick={() => toggleDropdown(item.name)}
+                        aria-expanded={activeDropdown === item.name}
+                        aria-haspopup="true"
+                      >
+                        {item.name}
                         <ChevronDown
                           size={16}
-                          className="ml-1 transition-transform duration-200 group-hover:rotate-180"
+                          className={`ml-1 transition-transform duration-200 ${
+                            activeDropdown === item.name ? "rotate-180" : ""
+                          } group-hover:rotate-180`}
                         />
-                      )}
-                    </Link>
+                      </button>
+                    ) : (
+                      // If it doesn't have a dropdown, make it a regular link
+                      <Link
+                        to={item.link || "#"}
+                        className={`px-3 py-2 rounded-md text-sm font-medium flex items-center transition-colors ${
+                          location.pathname === item.link
+                            ? "text-blue-600"
+                            : "text-gray-800 hover:text-blue-600 hover:bg-gray-50"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
 
                     {/* Highlight indicator for active page */}
-                    {location.pathname === item.link && (
+                    {item.link && location.pathname === item.link && (
                       <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600"></span>
                     )}
                   </div>
@@ -184,14 +197,6 @@ const Navbar = () => {
                           <div className="relative z-10">
                             <h2 className="text-xl md:text-2xl font-bold mb-4">{item.dropdownCategory.title}</h2>
                             <p className="text-sm leading-relaxed">{item.dropdownCategory.description}</p>
-                          </div>
-                          <div className="mt-6 relative z-10">
-                            <Link
-                              to={item.link}
-                              className="inline-block px-4 py-2 bg-white/20 hover:bg-white/30 rounded-md text-sm font-medium transition-colors"
-                            >
-                              Read more
-                            </Link>
                           </div>
                         </div>
 
@@ -257,21 +262,30 @@ const Navbar = () => {
                 <li key={item.name} className="rounded-md overflow-hidden">
                   <div>
                     <div className="flex items-center">
-                      <Link
-                        to={item.hasDropdown ? "#" : item.link}
-                        className={`flex-grow flex items-center px-3 py-2.5 text-sm font-medium ${
-                          location.pathname === item.link
-                            ? "bg-blue-50 text-blue-600"
-                            : "text-gray-800 hover:bg-gray-50"
-                        }`}
-                        onClick={(e) => {
-                          if (item.hasDropdown) {
+                      {item.hasDropdown ? (
+                        // If it has a dropdown, make it a button
+                        <button
+                          className="flex-grow flex items-center px-3 py-2.5 text-sm font-medium text-gray-800 hover:bg-gray-50"
+                          onClick={(e) => {
                             e.preventDefault()
-                          }
-                        }}
-                      >
-                        {item.name}
-                      </Link>
+                            toggleDropdown(item.name)
+                          }}
+                        >
+                          {item.name}
+                        </button>
+                      ) : (
+                        // If it doesn't have a dropdown, make it a regular link
+                        <Link
+                          to={item.link || "#"}
+                          className={`flex-grow flex items-center px-3 py-2.5 text-sm font-medium ${
+                            location.pathname === item.link
+                              ? "bg-blue-50 text-blue-600"
+                              : "text-gray-800 hover:bg-gray-50"
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      )}
 
                       {item.hasDropdown && (
                         <button

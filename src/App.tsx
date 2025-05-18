@@ -13,6 +13,8 @@ import Support from './pages/Support';
 // Auth Pages
 import Login from './pages/Auth/Login';
 import Signup from './pages/Signup';
+import Mining from './pages/Mining';
+import Agriculture from './pages/Agriculture';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/annual-report" element={<AnnualReport />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/projects" element={<Mining />} />
+        <Route path="/projects" element={<Agriculture />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/support" element={<Support />} />
 
