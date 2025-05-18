@@ -188,8 +188,12 @@ const Home = () => {
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         <div className="relative z-10 h-full flex items-center px-8 md:px-16 lg:px-24">
           <div className="text-white max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">Pioneering Australia's Mineral Future</h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-6">
+            <h1 className="text-2xl md:text-6xl font-bold mb-4 leading-tight tracking-tight">
+              <span className="block md:inline whitespace-nowrap">
+                Pioneering Australia's Mineral Future
+              </span>
+            </h1>
+             <p className="text-base md:text-lg text-gray-200 mb-6">
               Leading innovation in mineral exploration, bringing vital resources from discovery to global markets.
             </p>
             <button className="bg-blue-600 flex items-center hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-300">
