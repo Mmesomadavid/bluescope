@@ -1,114 +1,76 @@
-export interface DropdownItem {
+interface DropdownItem {
   name: string
   link: string
+  image: string
   description?: string
-  image?: string
 }
 
-export interface NavCategory {
+interface DropdownCategory {
   title: string
   description: string
   items: DropdownItem[]
-  color: string
-  image?: string
 }
 
 export interface NavItem {
   name: string
-  link?: string // Made optional for dropdown-only items
+  link?: string
   hasDropdown?: boolean
-  dropdownCategory?: NavCategory
+  dropdownCategory?: DropdownCategory
 }
 
 export const navItems: NavItem[] = [
   {
     name: "Home",
-    link: "/",
+    link: "/case-studies",
   },
   {
     name: "About Us",
+    hasDropdown: true,
+    dropdownCategory: {
+      title: "Our Services",
+      description: "Explore our range of professional services",
+      items: [
+        {
+          name: "Web Development",
+          link: "/services/web-development",
+          image: "/placeholder.svg?height=56&width=56",
+          description: "Custom websites and web applications",
+        },
+        {
+          name: "UI/UX Design",
+          link: "/services/ui-ux-design",
+          image: "/placeholder.svg?height=56&width=56",
+          description: "User-centered design solutions",
+        },
+        {
+          name: "Digital Marketing",
+          link: "/services/digital-marketing",
+          image: "/placeholder.svg?height=56&width=56",
+          description: "Grow your online presence",
+        },
+        {
+          name: "Consulting",
+          link: "/services/consulting",
+          image: "/placeholder.svg?height=56&width=56",
+          description: "Expert advice for your business",
+        },
+      ],
+    },
+  },
+  {
+    name: "Our projects",
     link: "/about",
   },
   {
-    name: "Our Projects",
-    // Removed link for dropdown-only items
-    hasDropdown: true,
-    dropdownCategory: {
-      title: "Our Projects",
-      description: "Explore BlueScope's diverse portfolio of projects across mining, agriculture, and energy sectors.",
-      color: "bg-blue-400",
-      image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/projects-bg.jpg",
-      items: [
-        {
-          name: "Mining",
-          link: "/mining",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/mining.jpg",
-        },
-        {
-          name: "Agriculture",
-          link: "/agriculture",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/agriculture.jpg",
-        },
-        {
-          name: "Oil & Gas",
-          link: "/oil-and-gas",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/energy.jpg",
-        },
-        {
-          name: "Philanthropy",
-          link: "/philanthropy",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/infrastructure.jpg",
-        },
-      ],
-    },
-  },
-  {
-    name: "BSP Annual Report",
-    link: "/annual-report",
-  },
-  {
-    name: "Members Area",
-    // Removed link for dropdown-only items
-    hasDropdown: true,
-    dropdownCategory: {
-      title: "Members Area",
-      description: "Access exclusive resources and services available only to BlueScope members.",
-      color: "bg-blue-400",
-      image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/members-bg.jpg",
-      items: [
-        {
-          name: "Login",
-          link: "/login",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/login.jpg",
-        },
-        {
-          name: "Sign Up",
-          link: "/signup",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/signup.jpg",
-        },
-      ],
-    },
-  },
-  {
-    name: "Support",
-    // Removed link for dropdown-only items
-    hasDropdown: true,
-    dropdownCategory: {
-      title: "Support",
-      description: "Find the assistance you need with our comprehensive support resources and contact options.",
-      color: "bg-blue-400",
-      image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/support-bg.jpg",
-      items: [
-        {
-          name: "Contact",
-          link: "/support",
-          image: "https://bluescopeptyltd.club/homelink/wp-content/uploads/2023/10/help.jpg",
-        },
-      ],
-    },
+    name: "Bsp Annual Report",
+    link: "/career",
   },
   {
     name: "Events",
-    link: "/events",
+    link: "/blog",
+  },
+  {
+    name: "Contact",
+    link: "/contact",
   },
 ]
