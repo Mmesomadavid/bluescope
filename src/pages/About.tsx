@@ -113,7 +113,7 @@ const About = () => {
               </motion.p>
               <motion.h1 variants={itemVariants} className="text-black text-4xl md:text-7xl font-semibold mb-6 Poppins">
                 We set out to build{" "}
-                <span className="block text-3xl md:text-6xl text-gray-700 mt-2">a better way to invest</span>
+                <span className="block text-3xl md:text-6xl text-blue-600 mt-2">a better way to invest</span>
               </motion.h1>
               <motion.p variants={itemVariants} className="text-gray-500 mb-8">
                 Together—the investors and partners of BlueScope—we are reinventing real estate investing end-to-end.
