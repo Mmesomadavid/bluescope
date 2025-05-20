@@ -7,29 +7,30 @@ import { ChevronLeft, ChevronRight, Shield, BarChart2, Globe, Zap } from 'lucide
 const features = [
   {
     icon: <Shield className="h-8 w-8 text-blue-500" />,
-    title: "Compliance Assurance",
-    description: "Automate regulatory compliance with real-time monitoring and verification across your entire supply chain.",
-    image: "https://images.pexels.com/photos/3855964/pexels-photo-3855964.jpeg?auto=compress&cs=tinysrgb&w=600"
+    title: "Exclusive Investor Membership",
+    description: "Gain access to a private investment community focused on safeguarding and enhancing wealth through diverse opportunities.",
+    image: "https://images.pexels.com/photos/1342609/pexels-photo-1342609.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     icon: <BarChart2 className="h-8 w-8 text-blue-500" />,
-    title: "Performance Analytics",
-    description: "Gain actionable insights with comprehensive dashboards tracking ESG metrics and sustainability KPIs.",
-    image: "https://images.pexels.com/photos/7821487/pexels-photo-7821487.jpeg?auto=compress&cs=tinysrgb&w=600"
+    title: "Real Estate Tokenization",
+    description: "Invest in tokenized real estate assets, offering enhanced transparency, liquidity, and efficient capital raising.",
+    image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     icon: <Globe className="h-8 w-8 text-blue-500" />,
-    title: "Global Supply Visibility",
-    description: "Map and monitor your entire supply network with geospatial tracking and real-time risk assessment.",
-    image: "https://images.pexels.com/photos/2098428/pexels-photo-2098428.jpeg?auto=compress&cs=tinysrgb&w=600"
+    title: "Global Investment Opportunities",
+    description: "Access exclusive investment opportunities in mining, agriculture, and oil & gas sectors across major global markets.",
+    image: "https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     icon: <Zap className="h-8 w-8 text-blue-500" />,
-    title: "Automated Reporting",
-    description: "Generate audit-ready reports for stakeholders, regulators, and certification bodies with one click.",
-    image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600"
+    title: "Philanthropic Initiatives",
+    description: "Participate in projects that enhance the well-being of individuals and communities, reflecting our commitment to social responsibility.",
+    image: "https://images.pexels.com/photos/3184290/pexels-photo-3184290.jpeg?auto=compress&cs=tinysrgb&w=600"
   }
 ];
+
 
 const KeyFeatures = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -177,7 +178,7 @@ const KeyFeatures = () => {
                 transition={{ duration: 0.7, ease: "easeInOut" }}
               >
                 <img
-                  src={feature.image || "/placeholder.svg"}
+                  src={feature.image}
                   alt={feature.title}
                   className="w-full h-full object-cover rounded-2xl"
                 />
