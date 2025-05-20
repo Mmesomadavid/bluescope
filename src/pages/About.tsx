@@ -107,43 +107,19 @@ const About = () => {
             variants={containerVariants}
             className="flex flex-col md:flex-row justify-between items-start gap-12"
           >
-            <div className="md:w-1/2" style={{ }}>
+            <div className="md:w-2/3">
               <motion.p variants={itemVariants} className="text-blue-400 mb-4">
                 We are BlueScope
               </motion.p>
-              <motion.h1 variants={itemVariants} className="text-black text-4xl md:text-6xl font-semibold mb-6 Poppins">
+              <motion.h1 variants={itemVariants} className="text-black text-4xl md:text-7xl font-semibold mb-6 Poppins">
                 We set out to build{" "}
-                <span className="block text-3xl md:text-5xl text-gray-700 mt-2">a better way to invest</span>
+                <span className="block text-3xl md:text-6xl text-gray-700 mt-2">a better way to invest</span>
               </motion.h1>
               <motion.p variants={itemVariants} className="text-gray-500 mb-8">
                 Together—the investors and partners of BlueScope—we are reinventing real estate investing end-to-end.
               </motion.p>
             </div>
-
-            <ParallaxWrapper speed={0.3} direction="up" offset={30} className="md:w-1/2">
-              <motion.div
-                variants={itemVariants}
-                className="grid grid-cols-1 md:grid-cols-2 gap-4 relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
-                <div className="rounded-lg overflow-hidden h-64">
-                  <img
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                    alt="Team celebrating"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="rounded-lg overflow-hidden h-64 mt-8">
-                  <img
-                    src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                    alt="Business meeting"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-            </ParallaxWrapper>
+            {/* Removed the right-side image grid */}
           </motion.div>
         </div>
       </section>

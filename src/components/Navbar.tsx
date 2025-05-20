@@ -68,7 +68,7 @@ export default function Navbar() {
 
         {/* Search Button */}
         <div className="hidden md:flex items-center">
-          <button className="bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded flex items-center mr-4">
+          <button className="text-black text-sm font-medium px-4 py-2 rounded flex items-center mr-4">
            Login
           </button>
           <button className="flex items-center bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded flex items-center">
