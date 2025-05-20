@@ -1,8 +1,8 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useInView, useAnimation, useScroll, useTransform } from "framer-motion"
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react"
+import { motion, useInView, useAnimation } from "framer-motion"
+import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import ParallaxWrapper from "../components/ui/ParallaxWrapper"
 import ScrollProgress from "../components/ui/ScrollProgress"
 
@@ -10,14 +10,6 @@ const About = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const controls = useAnimation()
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  })
-
-  // Parallax effects
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.8])
-  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -30])
 
   // Animation variants
   const containerVariants = {
@@ -115,7 +107,7 @@ const About = () => {
             variants={containerVariants}
             className="flex flex-col md:flex-row justify-between items-start gap-12"
           >
-            <div className="md:w-1/2" style={{ opacity: titleOpacity, y: titleY }}>
+            <div className="md:w-1/2" style={{ }}>
               <motion.p variants={itemVariants} className="text-blue-400 mb-4">
                 We are BlueScope
               </motion.p>
