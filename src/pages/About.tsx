@@ -8,7 +8,7 @@ import ScrollProgress from "../components/ui/ScrollProgress"
 
 const About = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.05 })
   const controls = useAnimation()
 
   // Animation variants
@@ -17,8 +17,8 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+        staggerChildren: 0.05,
+        delayChildren: 0,
       },
     },
   }
@@ -30,6 +30,8 @@ const About = () => {
       opacity: 1,
       transition: {
         type: "spring",
+        staggerChildren: 0.05, // less stagger
+        delayChildren: 0,
         stiffness: 100,
         damping: 12,
       },
