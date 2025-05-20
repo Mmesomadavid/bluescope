@@ -266,7 +266,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-8 md:mb-0">
-              <h2 className="text-3xl font-bold mb-2">Start investing today</h2>
+              <h2 className="text-3xl font-bold mb-2 text-white">Start investing today</h2>
               <p className="text-blue-100">BlueScope is about presenting meaningful opportunities to you.</p>
             </div>
             <motion.button
