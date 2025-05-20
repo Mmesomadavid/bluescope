@@ -192,7 +192,7 @@ const WhatWeInvestIn = () => {
                   {category.description}
                 </motion.p>
                 <motion.button
-                  className="inline-flex items-center text-sm font-medium text-white  px-4 py-2 rounded-md transition-colors"
+                  className="inline-flex bg-white text-black items-center text-sm font-medium px-4 py-2 rounded-md transition-colors"
                   variants={buttonVariants}
                   initial="rest"
                   animate={hoveredIndex === index ? "hover" : "rest"}
