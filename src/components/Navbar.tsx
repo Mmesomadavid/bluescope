@@ -1,109 +1,145 @@
 "use client"
 
+import { ArrowRight } from "lucide-react"
+import type React from "react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import { ChevronRight, Menu, X} from 'lucide-react'
-import { navItems } from "../constants/navigation"
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Project", href: "/project" },
+  { label: "BSP Annual Report", href: "/report" },
+  { label: "Members Area", href: "/members" },
+  { label: "Support", href: "/support" },
+  { label: "Event", href: "/event" },
+]
+
+const Navbar: React.FC = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-transparent backdrop-blur-md py-4 fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link to="/" className="text-gray-900 font-bold">
-            <img
-              src="https://bluescopeptyltd.club/assets/images/logoIcon/logo.png"
-              alt="Blue Scope"
-              className="h-8"
-            />
-          </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="relative"
-              onMouseEnter={() => setActiveDropdown(item.hasDropdown ? item.name : null)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <Link
-                to={item.link || "#"}
-                className="text-gray-700 text-sm hover:text-gray-900 font-medium px-1 py-2"
+    <nav className="bg-white py-4 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="h-8 w-8 bg-blue-600 rounded flex items-center justify-center mr-2">
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-white"
               >
-                {item.name}
-              </Link>
-
-              {item.hasDropdown && item.dropdownCategory && activeDropdown === item.name && (
-                <div className="absolute top-full left-0 z-50 w-[500px] p-4 bg-white border shadow-lg rounded-lg mt-1">
-                  <div className="mb-4">
-                    <h3 className="font-semibold text-gray-900 text-lg">{item.dropdownCategory.title}</h3>
-                    <p className="text-gray-500 text-sm">{item.dropdownCategory.description}</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    {item.dropdownCategory.items.map((sub, index) => (
-                      <Link
-                        key={index}
-                        to={sub.link}
-                        className="flex items-start space-x-3 hover:bg-gray-50 rounded-lg p-2 transition"
-                      >
-                        <img src={sub.image || "/placeholder.svg"} alt={sub.name} className="w-14 h-14 object-cover rounded-md" />
-                        <div>
-                          <h4 className="font-medium text-gray-800">{sub.name}</h4>
-                          {sub.description && <p className="text-xs text-gray-500">{sub.description}</p>}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
+                <path 
+                  d="M12 4L4 8L12 12L20 8L12 4Z" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+                <path 
+                  d="M4 16L12 20L20 16" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+                <path 
+                  d="M4 12L12 16L20 12" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
-          ))}
-        </div>
+            <span className="text-gray-900 font-bold text-xl">Hubpay</span>
+          </div>
 
-        {/* Search Button */}
-        <div className="hidden md:flex items-center">
-          <button className="text-black text-sm font-medium px-4 py-2 rounded flex items-center mr-4">
-           Login
-          </button>
-          <button className="flex items-center bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded flex items-center">
-           Sign Up
-           <ChevronRight className="w-4 h-4"/>
-          </button>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-gray-600 hover:text-gray-900 text-sm font-medium"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Auth Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
+            <a
+              href="/login"
+              className="text-gray-700 border border-gray-300 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-50"
+            >
+              Login
+            </a>
+            <a
+              href="/signup"
+              className="flex items-center bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700"
+            >
+              Sign Up
+              <ArrowRight className="w-4 h-4 ml-2"/>
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden mt-4 py-4 border-t border-gray-100 bg-white">
-          <div className="max-w-7xl mx-auto px-4 space-y-3">
-            {navItems.map((item, idx) => (
-              <div key={idx}>
-                <Link 
-                  to={item.link || "#"} 
-                  className="text-gray-700 block py-2 text-sm font-medium"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </div>
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden mt-4">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-gray-700 hover:text-blue-600 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium"
+              >
+                {item.label}
+              </a>
             ))}
-            <div className="pt-4 mt-4 border-t border-gray-100">
-              <button className="bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded w-full">
-                Sign up here
-              </button>
+          </div>
+          <div className="pt-4 pb-3 border-t border-gray-200">
+            <div className="flex items-center justify-center space-x-3 px-5 py-3">
+              <a
+                href="/login"
+                className="text-gray-700 border border-gray-300 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-50 w-full text-center"
+              >
+                Login
+              </a>
+              <a
+                href="/signup"
+                className="bg-blue-600 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 w-full text-center"
+              >
+                Sign Up
+              </a>
             </div>
           </div>
         </div>
@@ -111,3 +147,5 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export default Navbar

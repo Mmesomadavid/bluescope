@@ -1,21 +1,12 @@
-import Company from "../components/Home/Company";
-import Hero from "../components/Home/Hero";
-import HowItWorks from "../components/Home/HowItWorks";
-import KeyFeatures from "../components/Home/KeyFeatures";
-import SimplifyCompliance from "../components/Home/SimplifyCompliance";
-import Stats from "../components/Home/Stats";
+import type React from "react"
+import Hero from "../components/Hero"
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
-    <div>
-      <Hero/>
-      <Company/>
-      <Stats/>
-      <HowItWorks/>
-      <SimplifyCompliance/>
-      <KeyFeatures/>
+    <div className="min-h-screen">
+      <Hero />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
