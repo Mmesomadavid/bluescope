@@ -30,6 +30,37 @@ export const navItems: NavItem[] = [
   {
     name: "Our projects",
     link: "/about",
+    hasDropdown: true,
+    dropdownCategory: {
+      title: "Our Services",
+      description: "Explore our range of professional services",
+      items: [
+        {
+          name: "Mining",
+          link: "/services/web-development",
+          image: "https://images.pexels.com/photos/46801/coal-briquette-black-46801.jpeg?auto=compress&cs=tinysrgb&w=600",
+          description: "Custom websites and web applications",
+        },
+        {
+          name: "Agriculture",
+          link: "/services/ui-ux-design",
+          image: "https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=600",
+          description: "User-centered design solutions",
+        },
+        {
+          name: "Oil & Gas",
+          link: "/services/digital-marketing",
+          image: "https://images.pexels.com/photos/3216911/pexels-photo-3216911.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          description: "Grow your online presence",
+        },
+        {
+          name: "Philanthropy",
+          link: "/services/consulting",
+          image: "https://images.pexels.com/photos/6646862/pexels-photo-6646862.jpeg?auto=compress&cs=tinysrgb&w=600",
+          description: "Expert advice for your business",
+        },
+      ],
+    },
   },
   {
     name: "Bsp Annual Report",
