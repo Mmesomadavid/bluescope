@@ -89,7 +89,7 @@ const About = () => {
   ]
 
   return (
-    <div className="bg-background text-white" ref={ref}>
+    <div className="bg-background text-black" ref={ref}>
       <ScrollProgress />
 
       {/* Hero Section */}
