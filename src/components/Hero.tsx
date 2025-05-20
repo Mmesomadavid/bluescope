@@ -44,9 +44,9 @@ const Hero: React.FC = () => {
             {/* Image */}
             <div>
               <img
-                src="https://plus.unsplash.com/premium_photo-1680721444847-33e37f1bd4d1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGludmVzdGluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                src="https://images.pexels.com/photos/162639/digger-machine-machinery-construction-162639.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt="Investing"
-                className="w-full max-w-sm h-auto rounded-xl shadow-lg"
+                className="w-full max-w-lg h-auto rounded-xl shadow-lg"
               />
             </div>
 
