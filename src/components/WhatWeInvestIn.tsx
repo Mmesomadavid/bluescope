@@ -14,7 +14,8 @@ const investmentCategories = [
   {
     title: "Agriculture Production & Engagement",
     description: "Over 25 properties with innovative farming and export growth.",
-    image: "https://plus.unsplash.com/premium_photo-1661962692059-55d5a4319814?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWdyaWN1bHR1cmV8ZW58MHx8MHx8fDA%3D",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661962692059-55d5a4319814?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWdyaWN1bHR1cmV8ZW58MHx8MHx8fDA%3D",
   },
   {
     title: "Real Estate Tokenization",
@@ -24,7 +25,8 @@ const investmentCategories = [
   {
     title: "Oil & Gas Opportunities",
     description: "Invest in key basins with rich gas resources for strong returns.",
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2lsJTIwYW5kJTIwZ2FzfGVufDB8fDB8fHww",
+    image:
+      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b2lsJTIwYW5kJTIwZ2FzfGVufDB8fDB8fHww",
   },
   {
     title: "Philanthropy & Community Impact",
@@ -96,7 +98,7 @@ const WhatWeInvestIn = () => {
   const bottomRow = investmentCategories.slice(2, 5)
 
   return (
-    <section className="py-20 bg-background overflow-hidden">
+    <section className="py-20 bg-gray-50 overflow-hidden">
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
@@ -192,7 +194,7 @@ const WhatWeInvestIn = () => {
                   {category.description}
                 </motion.p>
                 <motion.button
-                  className="inline-flex bg-white text-black items-center text-sm font-medium px-4 py-2 rounded-md transition-colors"
+                  className="inline-flex bg-white text-black items-center text-sm font-medium px-3 py-1.5 rounded-md transition-colors w-auto"
                   variants={buttonVariants}
                   initial="rest"
                   animate={hoveredIndex === index ? "hover" : "rest"}
@@ -223,7 +225,7 @@ const WhatWeInvestIn = () => {
         </div>
 
         {/* Bottom row - 3 cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {bottomRow.map((category, index) => (
             <motion.div
               key={category.title}
@@ -272,7 +274,7 @@ const WhatWeInvestIn = () => {
                   {category.description}
                 </motion.p>
                 <motion.button
-                  className="inline-flex items-center text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition-colors"
+                  className="inline-flex items-center text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded-md transition-colors w-auto"
                   variants={buttonVariants}
                   initial="rest"
                   animate={hoveredIndex === index + topRow.length ? "hover" : "rest"}
