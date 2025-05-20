@@ -96,7 +96,7 @@ const WhatWeInvestIn = () => {
   const bottomRow = investmentCategories.slice(2, 5)
 
   return (
-    <section className="py-20 bg-gray-50 overflow-hidden">
+    <section className="py-20 bg-background overflow-hidden">
       <motion.div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         initial="hidden"
