@@ -21,41 +21,11 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     name: "Home",
-    link: "/case-studies",
+    link: "/",
   },
   {
     name: "About Us",
-    hasDropdown: true,
-    dropdownCategory: {
-      title: "Our Services",
-      description: "Explore our range of professional services",
-      items: [
-        {
-          name: "Web Development",
-          link: "/services/web-development",
-          image: "/placeholder.svg?height=56&width=56",
-          description: "Custom websites and web applications",
-        },
-        {
-          name: "UI/UX Design",
-          link: "/services/ui-ux-design",
-          image: "/placeholder.svg?height=56&width=56",
-          description: "User-centered design solutions",
-        },
-        {
-          name: "Digital Marketing",
-          link: "/services/digital-marketing",
-          image: "/placeholder.svg?height=56&width=56",
-          description: "Grow your online presence",
-        },
-        {
-          name: "Consulting",
-          link: "/services/consulting",
-          image: "/placeholder.svg?height=56&width=56",
-          description: "Expert advice for your business",
-        },
-      ],
-    },
+    link: "/about",
   },
   {
     name: "Our projects",

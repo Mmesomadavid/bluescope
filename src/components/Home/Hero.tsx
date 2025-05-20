@@ -78,7 +78,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-700 hover:bg-blue-800 text-white font-medium px-6 py-3 rounded-lg transition"
               >
-                Start Creating
+                Join Us now
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
