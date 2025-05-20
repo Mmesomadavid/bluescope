@@ -33,10 +33,34 @@ const Hero: React.FC = () => {
 
             {/* Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Own a Piece of the 
+              Own a Piece of the
               <br />
               <span className="text-blue-600">World's Wealth.</span>
             </h1>
+
+            {/* Description */}
+            <p className="text-gray-700 mb-8 max-w-lg">
+              At Bluescopepty Society, we are committed to preserving and growing your wealth through
+              innovative investment opportunities in mining, agriculture, real estate tokenization,
+              oil & gas, and philanthropy.
+            </p>
+
+            {/* Call to action button */}
+            <button
+              type="button"
+              className="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-600 font-semibold rounded-md hover:bg-blue-600 hover:text-white transition"
+            >
+              Learn More
+              <svg
+                className="ml-2 h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
 
           {/* Right section: Image + Vertical Stats */}
@@ -44,25 +68,29 @@ const Hero: React.FC = () => {
             {/* Image */}
             <div>
               <img
-                src="https://images.pexels.com/photos/162639/digger-machine-machinery-construction-162639.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Investing"
-                className="w-full max-w-lg h-auto rounded-xl shadow-lg"
+                src="https://images.unsplash.com/photo-1711012604128-8339024a3e12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1pbmluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                alt="Investment and growth concept"
+                className="w-full max-w-sm h-auto rounded-xl shadow-lg"
               />
             </div>
 
             {/* Vertical Stats */}
-            <div className="flex flex-col items-center lg:items-start gap-4">
+            <div className="flex flex-col items-center lg:items-start gap-6">
               <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold text-gray-900">30k+</p>
-                <p className="text-gray-600">Downloads</p>
+                <p className="text-3xl font-bold text-gray-900">25+</p>
+                <p className="text-gray-600">Agriculture Properties</p>
               </div>
               <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold text-gray-900">1.5k+</p>
-                <p className="text-gray-600">Reviews</p>
+                <p className="text-3xl font-bold text-gray-900">340k+</p>
+                <p className="text-gray-600">Beef Herd Capacity</p>
               </div>
               <div className="text-center lg:text-left">
-                <p className="text-3xl font-bold text-gray-900">99.9%</p>
-                <p className="text-gray-600">Uptime</p>
+                <p className="text-3xl font-bold text-gray-900">99%</p>
+                <p className="text-gray-600">Client Satisfaction</p>
+              </div>
+              <div className="text-center lg:text-left">
+                <p className="text-3xl font-bold text-gray-900">10+</p>
+                <p className="text-gray-600">Years of Excellence</p>
               </div>
             </div>
           </div>
