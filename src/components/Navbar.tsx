@@ -54,12 +54,12 @@ const Navbar: FC = () => {
           className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-50 p-4"
         >
           <div className="flex flex-col space-y-4">
-            <Link to="#" className="text-sm font-medium hover:text-blue-100">Home</Link>
-            <Link to="#" className="text-sm font-medium hover:text-blue-100">About Us</Link>
-            <Link to="#" className="text-sm font-medium hover:text-blue-100">Our Projects</Link>
-            <Link to="#" className="text-sm font-medium hover:text-blue-100">Bsp Annual Report</Link>
-            <Link to="#" className="text-sm font-medium hover:text-blue-100">Support</Link>
-            <Link to="#" className="text-sm font-medium hover:text-blue-100">Event</Link>
+            <Link to="#" className="text-sm font-medium hover:text-blue-400">Home</Link>
+            <Link to="/about" className="text-sm font-medium hover:text-blue-400">About Us</Link>
+            <Link to="/projects" className="text-sm font-medium hover:text-blue-400">Our Projects</Link>
+            <Link to="/reports" className="text-sm font-medium hover:text-blue-400">Bsp Annual Report</Link>
+            <Link to="/support" className="text-sm font-medium hover:text-blue-400">Support</Link>
+            <Link to="/events" className="text-sm font-medium hover:text-blue-400">Event</Link>
             <Link
               to="/signup" 
               className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-xl hover:bg-blue-600/90 transition-colors text-center"
