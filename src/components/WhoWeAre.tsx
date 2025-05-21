@@ -74,9 +74,9 @@ const WhoWeAre: FC = () => {
           {/* Stats Vertical Section */}
           <div className="flex flex-col gap-6">
             {[
-              { number: 14, label: "YEARS IN THE BUSINESS", bg: "bg-black", dot: "bg-blue-500" },
-              { number: 501, label: "FINISHED PROJECTS", bg: "bg-blue-500", dot: "bg-black" },
-              { number: 279, label: "SATISFIED CLIENTS", bg: "bg-blue-500", dot: "bg-black" },
+              { number: 14, label: "YEARS IN THE BUSINESS", bg: "bg-blue-600", dot: "bg-blue-500" },
+              { number: 501, label: "FINISHED PROJECTS", bg: "bg-blue-600", dot: "bg-black" },
+              { number: 279, label: "SATISFIED CLIENTS", bg: "bg-blue-600", dot: "bg-black" },
             ].map((item, index) => (
               <motion.div
                 key={index}
