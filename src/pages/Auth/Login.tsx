@@ -1,7 +1,7 @@
 import cryptoGlass from '../../assets/Futuristic_Glass_Cube.png';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { User, Lock, Eye, EyeOff } from 'lucide-react';
+import { User, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 
 const Login = () => {
@@ -9,12 +9,13 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center relative px-4">
-      {/* Logo - top left */}
-      <div className="absolute top-4 left-4">
-        {/* <img src={bluescopeLogo} alt="BlueScope Logo" className="h-8" /> */}
-      </div>
+      {/* Back Arrow */}
+      <Link to="/" className="flex items-center absolute top-8 left-8 text-black hover:text-blue-800">
+        <ArrowLeft size={20} />
+        <span className='ml-2'>Back</span>
+      </Link>
 
-      {/* login Card */}
+      {/* Login Card */}
       <div className="w-full max-w-md p-8">
         <h2 className="text-center text-2xl font-semibold mb-6">Welcome Back!</h2>
         <form className="space-y-5">
@@ -29,7 +30,7 @@ const Login = () => {
                 type="text"
                 id="email"
                 placeholder="Enter your email or username"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-3 border border-gray-400 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -45,7 +46,7 @@ const Login = () => {
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 placeholder="Enter your password"
-                className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-10 py-3 border border-gray-400 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 type="button"
@@ -74,7 +75,7 @@ const Login = () => {
             Login
           </button>
 
-          {/* Login Redirect */}
+          {/* Signup Redirect */}
           <p className="text-center text-sm text-gray-600">
             Don't have an account with us?{' '}
             <Link to="/signup" className="text-blue-600 hover:underline">Create Account</Link>
