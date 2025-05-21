@@ -13,13 +13,13 @@ const WhoWeAre: FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
         {/* Header Section */}
-        <div className="text-center md:text-left space-y-8 max-w-5xl mx-auto lg:mx-0">
+        <div className="text-center md:text-left space-y-8 max-w-8xl mx-auto lg:mx-0">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-xl md:text-4xl font-bold tracking-wide uppercase max-w-4xl mx-auto md:mx-0"
+            className="w-full text-xl md:text-4xl font-bold tracking-wide uppercase max-w-7xl mx-auto md:mx-0"
             style={{ lineHeight: 1.2 }}
           >
             At Blue Scope Pty Ltd,

@@ -59,7 +59,7 @@ const InvestorCard: FC = () => {
                   </div>
                 </div>
 
-                <button className="bg-white text-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center group">
+                <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center group">
                   Apply Now
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </button>
