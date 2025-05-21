@@ -14,7 +14,7 @@ const Cta: FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="bg-blue-500 rounded-xl overflow-hidden"
+          className="bg-blue-700 rounded-xl overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             {/* Text Content */}
