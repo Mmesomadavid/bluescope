@@ -1,173 +1,112 @@
 "use client"
 
-import type React from "react"
-
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { Twitter, Facebook, Linkedin, Youtube } from "lucide-react"
+import type { FC } from "react"
 
-const Footer = () => {
-  const [email, setEmail] = useState("")
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle subscription logic here
-    console.log("Subscribed with email:", email)
-    setEmail("")
-  }
-
+const Footer: FC = () => {
   return (
-    <footer className="bg-blue-600 rounded-tl-2xl rounded-tr-xl pt-16 pb-8 text-white">
-      {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {/* Useful Links */}
-          <div>
-            <h3 className="text-base font-semibold mb-4">Useful Links</h3>
-            <ul className="space-y-3 ">
-              <li>
-                <Link to="/about-us" className="text-gray-200 hover:text-blue-300 text-sm">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact-us" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/faqs" className="text-gray-200 hover:text-blue-300 text-sm">
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-of-service" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy-policy" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Careers */}
-          <div>
-            <h3 className="text-base font-semibold mb-4">Careers</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/blog" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/press" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Press
-                </Link>
-              </li>
-              <li>
-                <Link to="/partnerships" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Partnerships
-                </Link>
-              </li>
-              <li>
-                <Link to="/support" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Support
-                </Link>
-              </li>
-              <li>
-                <Link to="/help-center" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Help Center
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-base font-semibold mb-4">Resources</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/events" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link to="/community" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Community
-                </Link>
-              </li>
-              <li>
-                <Link to="/social-media" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Social Media
-                </Link>
-              </li>
-              <li>
-                <Link to="/newsletter" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Newsletter
-                </Link>
-              </li>
-              <li>
-                <Link to="/subscribe" className="text-gray-200 hover:text-blue-300 text-sm">
-                  Subscribe
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Subscribe */}
-          <div>
-            <h3 className="text-base font-semibold mb-4">Subscribe</h3>
-            <p className="text-sm text-gray-300 mb-4">Join our community to receive updates</p>
-            <form className="flex flex-col sm:flex-row w-full max-w-xs sm:max-w-none" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 min-w-0 px-4 py-2 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-t-md sm:rounded-l-md sm:rounded-t-none focus:outline-none focus:ring-2 focus:ring-blue-400"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <button
-                type="submit"
-                className="bg-[#00509E] text-white px-4 py-2 text-sm font-medium rounded-b-md sm:rounded-r-md sm:rounded-b-none hover:bg-[#007ACC] transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-xs text-gray-400 mt-2">
-              By subscribing, you agree to our{" "}
-              <Link to="/privacy-policy" className="text-blue-300 hover:underline">
-                Privacy Policy
-              </Link>
+    <footer className="bg-blue-600 text-white py-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col space-y-10">
+          {/* Logo and tagline */}
+          <div className="flex flex-col space-y-4">
+            <div className="flex items-center">
+              <span className="text-white text-xl font-medium">Bluescope</span>
+            </div>
+            <p className="text-sm">
+              Global expert in technology in medicine.
+              <br />
+              Subsidized by EU funds.
             </p>
           </div>
-        </div>
 
-        {/* Bottom footer */}
-        <div className="pt-8 border-t border-gray-500">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-0">
-            <div className="flex justify-center md:justify-start mb-4 md:mb-0">
-              <img src="/placeholder.svg?height=48&width=150" alt="BlueScope" className="h-12 w-auto" />
+          {/* Social and links grid */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Social media */}
+            <div>
+              <p className="text-sm mb-4">Follow us</p>
+              <div className="flex space-x-4">
+                <Link to="#" aria-label="Twitter">
+                  <Twitter size={18} className="text-white hover:text-white transition-colors" />
+                </Link>
+                <Link to="#" aria-label="Facebook">
+                  <Facebook size={18} className="text-white hover:text-white transition-colors" />
+                </Link>
+                <Link to="#" aria-label="LinkedIn">
+                  <Linkedin size={18} className="text-white hover:text-white transition-colors" />
+                </Link>
+                <Link to="#" aria-label="YouTube">
+                  <Youtube size={18} className="text-white hover:text-white transition-colors" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Information links */}
+            <div>
+              <p className="text-sm mb-4">Need more information?</p>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Fizmed Announcements
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Customer Support
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal links - first column */}
+            <div>
+              <p className="text-sm mb-4 opacity-0">Legal</p>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Legal
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Cookie Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Terms
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal links - second column */}
+            <div>
+              <p className="text-sm mb-4 opacity-0">Legal</p>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-sm hover:text-white transition-colors">
+                    Impressum
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-6 pt-4 border-t border-gray-500 text-sm text-gray-400 gap-4 sm:gap-0">
-            <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-2 sm:mb-0">
-              <Link to="/privacy-policy" className="hover:text-blue-400">
-                Privacy Policy
-              </Link>
-              <Link to="/terms-of-service" className="hover:text-blue-400">
-                Terms of Service
-              </Link>
-              <Link to="/cookie-policy" className="hover:text-blue-400">
-                Cookie Policy
-              </Link>
-            </div>
-            <div className="text-center sm:text-right">
-              © {new Date().getFullYear()} BlueScope. All rights reserved.
-            </div>
+          {/* Copyright */}
+          <div className="pt-8 border-t border-gray-400">
+            <p className="text-xs">© {new Date().getFullYear()} Fizmed. All rights reserved.</p>
           </div>
         </div>
       </div>
