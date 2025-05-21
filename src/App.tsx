@@ -7,13 +7,17 @@ import Home from './pages/Home';
 import Support from './pages/Support';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
+import React from 'react';
 
-function Layout({ children }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+function Layout({ children }: LayoutProps) {
   const location = useLocation();
 
   // Paths where Navbar and Footer should be hidden
   const noNavFooterPaths = ['/login', '/signup'];
-
   const hideNavFooter = noNavFooterPaths.includes(location.pathname);
 
   return (
@@ -29,15 +33,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Wrap all routes with Layout except login and signup */}
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-        <Route
-          path="/signup"
-          element={<Signup />}
-        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/*"
           element={
