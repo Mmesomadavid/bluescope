@@ -19,7 +19,7 @@ const WhoWeAre: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-xl md:text-2xl font-semibold tracking-wide uppercase max-w-4xl mx-auto md:mx-0"
+            className="text-xl md:text-4xl font-bold tracking-wide uppercase max-w-4xl mx-auto md:mx-0"
             style={{ lineHeight: 1.2 }}
           >
             At Blue Scope Pty Ltd,
