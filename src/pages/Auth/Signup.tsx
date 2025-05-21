@@ -1,7 +1,7 @@
-import cryptoGlass from '../assets/Futuristic_Glass_Cube.png';
+import cryptoGlass from '../../assets/Futuristic_Glass_Cube.png';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { User, Lock, Eye, EyeOff } from 'lucide-react';
+import { User, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 
 const Signup = () => {
@@ -9,10 +9,11 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center relative px-4">
-      {/* Logo - top left */}
-      <div className="absolute top-4 left-4">
-        {/* <img src={bluescopeLogo} alt="BlueScope Logo" className="h-8" /> */}
-      </div>
+      {/* Back Arrow */}
+      <Link to="/" className="flex items-center absolute top-8 left-8 text-black hover:text-blue-800">
+        <ArrowLeft size={20} />
+        <span className='ml-2'>Back</span>
+      </Link>
 
       {/* Signup Card */}
       <div className="w-full max-w-md p-8">
@@ -29,7 +30,7 @@ const Signup = () => {
                 type="text"
                 id="email"
                 placeholder="Enter your email or username"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-3 border border-gray-400 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -45,7 +46,7 @@ const Signup = () => {
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 placeholder="Enter your password"
-                className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-10 py-3 border border-gray-400 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 type="button"

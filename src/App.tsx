@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Support from './pages/Support';
 import Login from './pages/Auth/Login';
-import Signup from './pages/Signup';
+import Signup from './pages/Auth/Signup';
 
 function Layout({ children }) {
   const location = useLocation();
