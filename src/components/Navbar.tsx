@@ -27,7 +27,7 @@ const Navbar: FC = () => {
           <Link to="/events" className="text-sm font-medium hover:text-blue-100">Event</Link>
           <Link
               to="/signup" 
-              className="flex items-center bg-white text-black  text-sm font-medium px-4 py-2 rounded-sm hover:bg-white/90  transition-colors text-center"
+              className="flex items-center h-10 bg-white text-black  text-sm font-medium px-4 py-2 rounded-xl hover:bg-white/90  transition-colors text-center"
             >
               Create an Account
               <ArrowRight className="w-4 h-4 ml-2"/>
