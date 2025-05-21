@@ -12,19 +12,19 @@ const Navbar: FC = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <a href="/" className="text-white font-bold text-xl tracking-wider">
+          <Link to="/" className="text-white font-bold text-xl tracking-wider">
             BLUESCOPE<span className="text-xs align-top">TM</span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8 text-white">
-          <a href="#" className="text-sm font-medium hover:text-blue-500">Home</a>
-          <a href="#" className="text-sm font-medium hover:text-blue-500">About Us</a>
-          <a href="#" className="text-sm font-medium hover:text-blue-500">Our Projects</a>
-          <a href="#" className="text-sm font-medium hover:text-blue-500">Bsp Annual Report</a>
-          <a href="#" className="text-sm font-medium hover:text-blue-500">Support</a>
-          <a href="#" className="text-sm font-medium hover:text-blue-500">Event</a>
+          <Link to="/" className="text-sm font-medium hover:text-blue-100">Home</Link>
+          <Link to="/about" className="text-sm font-medium hover:text-blue-100">About Us</Link>
+          <Link to="/projects" className="text-sm font-medium hover:text-blue-100">Our Projects</Link>
+          <Link to="/reports" className="text-sm font-medium hover:text-blue-100">Bsp Annual Report</Link>
+          <Link to="/support" className="text-sm font-medium hover:text-blue-100">Support</Link>
+          <Link to="/events" className="text-sm font-medium hover:text-blue-100">Event</Link>
           <Link
               to="/signup" 
               className="flex items-center bg-white text-black  text-sm font-medium px-4 py-2 rounded-sm hover:bg-white/90  transition-colors text-center"
@@ -54,12 +54,12 @@ const Navbar: FC = () => {
           className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg z-50 p-4"
         >
           <div className="flex flex-col space-y-4">
-            <a href="#" className="text-sm font-medium hover:text-blue-500">Home</a>
-            <a href="#" className="text-sm font-medium hover:text-blue-500">About Us</a>
-            <a href="#" className="text-sm font-medium hover:text-blue-500">Our Projects</a>
-            <a href="#" className="text-sm font-medium hover:text-blue-500">Bsp Annual Report</a>
-            <a href="#" className="text-sm font-medium hover:text-blue-500">Support</a>
-            <a href="#" className="text-sm font-medium hover:text-blue-500">Event</a>
+            <Link to="#" className="text-sm font-medium hover:text-blue-100">Home</Link>
+            <Link to="#" className="text-sm font-medium hover:text-blue-100">About Us</Link>
+            <Link to="#" className="text-sm font-medium hover:text-blue-100">Our Projects</Link>
+            <Link to="#" className="text-sm font-medium hover:text-blue-100">Bsp Annual Report</Link>
+            <Link to="#" className="text-sm font-medium hover:text-blue-100">Support</Link>
+            <Link to="#" className="text-sm font-medium hover:text-blue-100">Event</Link>
             <Link
               to="/signup" 
               className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-xl hover:bg-blue-600/90 transition-colors text-center"

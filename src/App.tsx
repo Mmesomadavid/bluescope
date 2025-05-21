@@ -8,6 +8,10 @@ import Support from './pages/Support';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import React from 'react';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import AnnualReport from './pages/AnnualReport';
+import Events from './pages/Events';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -41,6 +45,11 @@ function App() {
             <Layout>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/reports" element={<AnnualReport />} />
+                <Route path="/support" element={<Support />} />
+                <Route path="/events" element={<Events />} />
                 <Route path="/support" element={<Support />} />
                 {/* Add other routes here */}
               </Routes>
