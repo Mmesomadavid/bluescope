@@ -5,6 +5,7 @@ import type { FC } from "react"
 import cryptoGlass1 from '../assets/Futuristic_Glass_Cube.png'
 import cryptoGlass2 from '../assets/Futuristic_Glass_Cube.png'
 import { ChevronRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const Hero: FC = () => {
   return (
@@ -62,10 +63,12 @@ const Hero: FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-12"
           >
-            <button className="flex items-center bg-white text-black px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
-              Create an Account with Us
-              <ChevronRight/>
-            </button>
+            <Link to="/login">
+                <button className="flex items-center bg-white text-black px-6 py-3 rounded-xl font-medium hover:bg-white/90 transition-colors">
+                Create an Account with Us
+                <ChevronRight/>
+                </button>
+            </Link>
           </motion.div>
         </div>
       </div>
