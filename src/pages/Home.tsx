@@ -1,13 +1,13 @@
 import type React from "react"
 import Hero from "../components/Hero"
-import WhatWeInvestIn from "../components/WhatWeInvestIn"
 import TrustedByInvestors from "../components/TrustedByInvestors"
+import WhoWeAre from "../components/WhoWeAre"
 
 const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <WhatWeInvestIn />
+      <WhoWeAre />
       <TrustedByInvestors />
     </div>
   )
