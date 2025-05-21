@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Menu, X } from 'lucide-react';
 import type { FC } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,13 +25,13 @@ const Navbar: FC = () => {
           <a href="#" className="text-sm font-medium hover:text-blue-500">Bsp Annual Report</a>
           <a href="#" className="text-sm font-medium hover:text-blue-500">Support</a>
           <a href="#" className="text-sm font-medium hover:text-blue-500">Event</a>
-          <a 
-            href="#" 
-            className="flex items-center bg-white text-black text-sm font-medium px-4 py-2 rounded-sm hover:bg-white/90 transition-colors"
-          >
-            Create Account
-            <ArrowRight className="w-4 h-4 ml-2"/>
-          </a>
+          <Link
+              to="/signup" 
+              className="flex items-center bg-white text-black  text-sm font-medium px-4 py-2 rounded-sm hover:bg-white/90  transition-colors text-center"
+            >
+              Create an Account
+              <ArrowRight className="w-4 h-4 ml-2"/>
+            </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -59,12 +60,12 @@ const Navbar: FC = () => {
             <a href="#" className="text-sm font-medium hover:text-blue-500">Bsp Annual Report</a>
             <a href="#" className="text-sm font-medium hover:text-blue-500">Support</a>
             <a href="#" className="text-sm font-medium hover:text-blue-500">Event</a>
-            <a 
-              href="#" 
+            <Link
+              to="/signup" 
               className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-xl hover:bg-blue-600/90 transition-colors text-center"
             >
               Create an Account
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}
