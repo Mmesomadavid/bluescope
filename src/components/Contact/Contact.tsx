@@ -3,7 +3,7 @@ import cryptoGlass from '../../assets/Futuristic_Glass_Cube.png'; // update path
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center relative px-4">
+    <div className="min-h-screen  flex flex-col items-center justify-center relative px-4">
 
       {/* Blurred Background Circles */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-300 opacity-30 blur-3xl rounded-full -z-10"></div>
