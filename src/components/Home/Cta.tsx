@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from 'lucide-react'
 import type { FC } from "react"
-import cryptoGlass from '../assets/Futuristic_Glass_Cube.png'
+import cryptoGlass from '../../assets/Futuristic_Glass_Cube.png'
 
 const Cta: FC = () => {
   return (

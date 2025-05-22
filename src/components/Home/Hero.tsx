@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 import type { FC } from "react"
 import { ChevronRight } from "lucide-react"
 import { Link } from "react-router-dom"
-import cryptoGlass1 from '../assets/Futuristic_Glass_Cube.png'
-import cryptoGlass2 from '../assets/Futuristic_Glass_Cube.png'
+import cryptoGlass1 from '../../assets/Futuristic_Glass_Cube.png'
+import cryptoGlass2 from '../../assets/Futuristic_Glass_Cube.png'
 
 const Hero: FC = () => {
   return (
