@@ -93,8 +93,8 @@ export default function TransactionsSection() {
   }
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-gray-50 overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 md:py-20 bg-gray-50 overflow-x-hidden relative w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -112,20 +112,21 @@ export default function TransactionsSection() {
         </motion.div>
 
         <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          {/* Table container with controlled width and overflow */}
+          <div className="w-full overflow-x-auto" style={{ maxWidth: "100%" }}>
+            <table className="w-full min-w-full table-fixed">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200">
-                  <th className="px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider w-1/4">
                     Name
                   </th>
-                  <th className="px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider w-2/5">
                     Transaction Hash
                   </th>
-                  <th className="px-4 py-3 text-right text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-right text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider w-1/4">
                     Amount (USD)
                   </th>
-                  <th className="px-4 py-3 text-right text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider w-10">
+                  <th className="px-4 py-3 text-right text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider w-16">
                     <span className="sr-only">Action</span>
                   </th>
                 </tr>
@@ -140,21 +141,22 @@ export default function TransactionsSection() {
                     viewport={{ once: true }}
                     className="hover:bg-gray-50"
                   >
-                    <td className="px-4 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-900">
-                      {transaction.name}
-                    </td>
-                    <td className="px-4 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500 font-mono">
+                    <td className="px-4 py-3 sm:py-4 truncate text-xs sm:text-sm text-gray-900">{transaction.name}</td>
+                    <td className="px-4 py-3 sm:py-4 truncate text-xs sm:text-sm text-gray-500 font-mono">
                       {formatHash(transaction.hash)}
                     </td>
-                    <td className="px-4 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-right text-gray-900">
+                    <td className="px-4 py-3 sm:py-4 text-xs sm:text-sm text-right text-gray-900">
                       <div className="flex items-center justify-end">
-                        <DollarSign className="h-3 w-3 sm:h-4 sm:w-4 text-[#1e56ff] mr-1" />
-                        {formatAmount(transaction.amount)}
+                        <DollarSign className="h-3 w-3 sm:h-4 sm:w-4 text-[#1e56ff] mr-1 flex-shrink-0" />
+                        <span className="truncate">{formatAmount(transaction.amount)}</span>
                       </div>
                     </td>
-                    <td className="px-4 py-3 sm:py-4 whitespace-nowrap text-right text-xs sm:text-sm font-medium">
-                      <a href={`/transactions/${transaction.hash}`} className="text-[#1e56ff] hover:text-blue-700">
-                        <ArrowUpRight className="h-4 w-4" />
+                    <td className="px-4 py-3 sm:py-4 text-right text-xs sm:text-sm font-medium">
+                      <a
+                        href={`/transactions/${transaction.hash}`}
+                        className="text-[#1e56ff] hover:text-blue-700 block"
+                      >
+                        <ArrowUpRight className="h-4 w-4 ml-auto" />
                       </a>
                     </td>
                   </motion.tr>
