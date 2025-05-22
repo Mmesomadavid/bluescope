@@ -6,7 +6,7 @@ import type { FC } from "react"
 
 const Footer: FC = () => {
   return (
-    <footer className="bg-blue-700 text-white py-12">
+    <footer className="bg-blue-800 text-white py-12">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col space-y-10">
           {/* Logo and tagline */}
