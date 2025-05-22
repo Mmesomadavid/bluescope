@@ -8,16 +8,22 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center relative px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center relative px-4 sm:px-6">
       {/* Back Arrow */}
-      <Link to="/" className="flex items-center absolute top-8 left-8 text-black hover:text-blue-800">
-        <ArrowLeft size={20} />
-        <span className='ml-2'>Back</span>
+      <Link
+        to="/"
+        className="flex items-center absolute top-6 left-4 sm:top-8 sm:left-8 text-black hover:text-blue-800 text-sm sm:text-base"
+      >
+        <ArrowLeft size={18} aria-label="Back arrow" />
+        <span className="ml-2">Back</span>
       </Link>
 
       {/* Signup Card */}
-      <div className="w-full max-w-md p-8">
-        <h2 className="text-center text-2xl font-semibold mb-6">Create your account</h2>
+      <div className="w-full max-w-md bg-white p-6 sm:p-8">
+        <h2 className="text-center text-2xl sm:text-3xl font-semibold mb-6 text-gray-900">
+          Create your account
+        </h2>
+
         <form className="space-y-5">
           {/* Username or Email */}
           <div>
@@ -25,12 +31,16 @@ const Signup = () => {
               Username or Email
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <User
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+                aria-hidden
+              />
               <input
                 type="text"
                 id="email"
                 placeholder="Enter your email or username"
-                className="w-full pl-10 pr-4 py-3 border border-gray-400 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-3 rounded-2xl border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -41,25 +51,30 @@ const Signup = () => {
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+              <Lock
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                size={20}
+                aria-hidden
+              />
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
                 placeholder="Enter your password"
-                className="w-full pl-10 pr-10 py-3 border border-gray-400 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-10 py-3 rounded-2xl border border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 focus:outline-none"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
           </div>
 
-          {/* Terms and Forgot Password */}
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          {/* Terms & Forgot Password */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-600 gap-2">
             <label className="flex items-center">
               <input type="checkbox" className="mr-2" />
               I agree to the <Link to="#" className="text-blue-600 underline">Terms</Link>
@@ -70,7 +85,7 @@ const Signup = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full h-12 py-2 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition font-medium"
+            className="w-full h-12 bg-blue-600 text-white text-sm sm:text-base font-medium rounded-2xl hover:bg-blue-700 transition duration-200"
           >
             Create Account
           </button>
@@ -84,21 +99,21 @@ const Signup = () => {
       </div>
 
       {/* Footer */}
-      <div className="mt-8 text-center text-sm text-gray-400">
+      <div className="mt-10 text-center text-xs sm:text-sm text-gray-400">
         © {new Date().getFullYear()} BlueScope™. All rights reserved.
       </div>
 
       {/* Floating Illustration */}
-      <div className="absolute bottom-4 right-4 w-48 opacity-70 pointer-events-none">
+      <div className="absolute bottom-4 right-4 w-40 sm:w-48 opacity-70 pointer-events-none">
         <motion.img
           src={cryptoGlass}
           alt="crypto illustration"
           className="w-full h-auto"
-          animate={{ y: [0, -30, 0] }}
+          animate={{ y: [0, -20, 0] }}
           transition={{
             duration: 3,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         />
       </div>
