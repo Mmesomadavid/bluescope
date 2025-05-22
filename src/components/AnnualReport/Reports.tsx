@@ -1,6 +1,18 @@
 "use client"
+
 import { motion } from "framer-motion"
-import { ArrowUp, ArrowDown, TrendingUp, DollarSign, BarChart3, Users } from "lucide-react"
+import {
+  ArrowRight,
+  ArrowUp,
+  ArrowDown,
+  ChevronLeft,
+  ChevronRight,
+  BarChart3,
+  Users,
+  DollarSign,
+  TrendingUp,
+} from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function Reports() {
   // Financial data
@@ -98,10 +110,227 @@ export default function Reports() {
   }
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <div className="bg-white min-h-screen">
 
-        {/* Key Metrics */}
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-16 md:py-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+            Innovative <span className="text-[#1e56ff]">Financial Reports</span> for a{" "}
+            <span className="text-[#1e56ff]">Competitive Edge</span>
+          </h1>
+          <p className="mt-6 text-gray-600 text-lg max-w-2xl">
+            We are here to help your business grow with well-planned strategies, innovative solutions, and precise
+            execution. Together, let's turn your business vision into real success.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Feature Cards */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <motion.div
+            className="bg-black text-white p-8 flex flex-col justify-between min-h-[240px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <BarChart3 className="h-6 w-6 mb-4" />
+              <h3 className="text-xl font-medium mb-2">Explore Business to Achieve More</h3>
+            </div>
+            <Link to="/explore" className="flex items-center text-sm mt-4">
+              Explore Now <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            className="bg-black text-white p-8 flex flex-col justify-between min-h-[240px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <DollarSign className="h-6 w-6 mb-4" />
+              <h3 className="text-xl font-medium mb-2">Ready to Make an Impact? Let's Create Something Amazing!</h3>
+            </div>
+            <Link to="/get-started" className="flex items-center text-sm mt-4">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            className="bg-black text-white p-8 flex flex-col justify-between min-h-[240px]"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <div className="mb-4">"</div>
+              <p className="text-sm">Their expertise helped us achieve real growth. Highly recommended!</p>
+            </div>
+            <div className="mt-4 text-sm">
+              <p>Echo Agency</p>
+              <p>Alexander Ronald</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section with Stats */}
+      <section className="mt-16 grid grid-cols-1 md:grid-cols-2">
+        <motion.div
+          className="bg-black p-8 flex items-center justify-center"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <img
+            src="/placeholder.svg?height=400&width=400"
+            alt="Office interior"
+            width={400}
+            height={400}
+            className="object-cover grayscale"
+          />
+        </motion.div>
+        <motion.div
+          className="bg-[#1e56ff] text-white p-12 flex flex-col justify-center"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h4 className="text-sm uppercase mb-4">Reports</h4>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Innovative Digital Solutions to Accelerate Your Online Business Growth.
+          </h2>
+          <p className="mb-8">
+            We are an agency that helps brands grow through innovative solutions and effective marketing strategies.
+          </p>
+          <div className="grid grid-cols-3 gap-4 mt-8">
+            <div>
+              <h3 className="text-4xl font-bold">
+                2.3K<span className="text-xl">+</span>
+              </h3>
+              <p className="text-sm mt-1">Momentum Collective</p>
+            </div>
+            <div>
+              <h3 className="text-4xl font-bold">20</h3>
+              <p className="text-sm mt-1">Years of Experience</p>
+            </div>
+            <div>
+              <h3 className="text-4xl font-bold">1.9K</h3>
+              <p className="text-sm mt-1">Customers Worldwide</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Financial Reports Section */}
+      <section className="container mx-auto px-4 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="text-4xl font-bold mb-4">All Financial Reports that Have Consulted</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <BarChart3 className="h-4 w-4 text-[#1e56ff]" />
+                </div>
+                <h3 className="text-sm font-medium">Client Data Report</h3>
+              </div>
+              <div className="h-32 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                <img
+                  src="https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt="Chart"
+                  width={200}
+                  height={100}
+                  className="object-contain"
+                />
+              </div>
+              <div className="text-xs text-gray-500">Data from 2023-2025</div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1583009640887-eafd1a994d30?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D"
+              alt="Office building"
+              width={400}
+              height={300}
+              className="object-cover h-48 w-full"
+            />
+            <div className="p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                    <Users className="h-4 w-4 text-gray-500" />
+                  </div>
+                </div>
+              </div>
+              <h3 className="mt-4 text-xl font-medium">Visionary Hive</h3>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="p-6">
+              <div className="text-xs text-gray-500 mb-4">Join from 23 February 2025</div>
+              <h3 className="text-2xl font-bold mb-1">McCann</h3>
+              <h4 className="text-xl font-medium mb-6">Worldgroup</h4>
+              <p className="text-sm text-gray-600">
+                We provide strategic and innovative business management to enhance efficiency, branding, and growth.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="flex items-center justify-between mt-8">
+          <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center">
+            <ChevronLeft className="h-5 w-5 text-gray-500" />
+          </button>
+          <button className="w-10 h-10 rounded-full bg-[#1e56ff] flex items-center justify-center">
+            <ChevronRight className="h-5 w-5 text-white" />
+          </button>
+        </div>
+      </section>
+
+      {/* Financial Data Section */}
+      <section className="container mx-auto px-4 py-16 bg-gray-50">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
           variants={containerVariants}
@@ -109,7 +338,7 @@ export default function Reports() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500" variants={itemVariants}>
+          <motion.div className="bg-white p-6 rounded-lg shadow-sm" variants={itemVariants}>
             <div className="flex justify-between items-start mb-4">
               <div>
                 <p className="text-sm text-gray-500">Total Sales</p>
@@ -133,7 +362,7 @@ export default function Reports() {
             </p>
           </motion.div>
 
-          <motion.div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500" variants={itemVariants}>
+          <motion.div className="bg-white p-6 rounded-lg shadow-sm" variants={itemVariants}>
             <div className="flex justify-between items-start mb-4">
               <div>
                 <p className="text-sm text-gray-500">Product Sales</p>
@@ -157,26 +386,26 @@ export default function Reports() {
             </p>
           </motion.div>
 
-          <motion.div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500" variants={itemVariants}>
+          <motion.div className="bg-white p-6 rounded-lg shadow-sm" variants={itemVariants}>
             <div className="flex justify-between items-start mb-4">
               <div>
                 <p className="text-sm text-gray-500">Net Income</p>
                 <h3 className="text-3xl font-bold text-gray-900">${formatNumber(financialData.netIncome.value)}M</h3>
               </div>
-              <div className="text-blue-500">
+              <div className="text-[#1e56ff]">
                 <DollarSign className="h-5 w-5" />
               </div>
             </div>
             <p className="text-sm text-gray-600">Strong performance across all business segments</p>
           </motion.div>
 
-          <motion.div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500" variants={itemVariants}>
+          <motion.div className="bg-white p-6 rounded-lg shadow-sm" variants={itemVariants}>
             <div className="flex justify-between items-start mb-4">
               <div>
                 <p className="text-sm text-gray-500">Liquidity</p>
                 <h3 className="text-3xl font-bold text-gray-900">${formatNumber(financialData.liquidity.value)}M</h3>
               </div>
-              <div className="text-blue-500">
+              <div className="text-[#1e56ff]">
                 <TrendingUp className="h-5 w-5" />
               </div>
             </div>
@@ -188,7 +417,7 @@ export default function Reports() {
 
         {/* Quarterly Performance Chart */}
         <motion.div
-          className="bg-white p-8 rounded-lg shadow-md mb-16"
+          className="bg-white p-8 rounded-lg shadow-sm mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -200,7 +429,7 @@ export default function Reports() {
               {quarterlyData.map((data, index) => (
                 <div key={index} className="flex flex-col items-center w-1/7">
                   <motion.div
-                    className="bg-blue-500 w-12 rounded-t-md"
+                    className="bg-[#1e56ff] w-12 rounded-t-md"
                     style={{
                       height: `${(data.sales / 170) * 100}%`,
                     }}
@@ -223,74 +452,6 @@ export default function Reports() {
           </div>
         </motion.div>
 
-        {/* Detailed Report */}
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.div className="bg-white p-8 rounded-lg shadow-md" variants={itemVariants}>
-            <div className="flex items-center mb-6">
-              <BarChart3 className="h-6 w-6 text-blue-500 mr-3" />
-              <h3 className="text-xl font-bold text-gray-900">Q3 2024 Highlights</h3>
-            </div>
-            <ul className="space-y-4">
-              <li className="flex">
-                <span className="text-blue-500 font-bold mr-2">•</span>
-                <p className="text-gray-700">
-                  Total sales increased by $4.5 million (2.8%) compared to Q2 2024, reaching $161.5 million.
-                </p>
-              </li>
-              <li className="flex">
-                <span className="text-blue-500 font-bold mr-2">•</span>
-                <p className="text-gray-700">
-                  Product sales surged by $11.1 million (9.6%) over Q2 2024, reaching $125.9 million.
-                </p>
-              </li>
-              <li className="flex">
-                <span className="text-blue-500 font-bold mr-2">•</span>
-                <p className="text-gray-700">Service sales increased by $4.5 million (14.2%) compared to Q2 2024.</p>
-              </li>
-              <li className="flex">
-                <span className="text-blue-500 font-bold mr-2">•</span>
-                <p className="text-gray-700">
-                  Cost of sales increased by $4.5 million (6.9%) compared to the prior quarter, totaling $71.3 million.
-                </p>
-              </li>
-              <li className="flex">
-                <span className="text-blue-500 font-bold mr-2">•</span>
-                <p className="text-gray-700">
-                  SG&A expenses increased by $2.3 million (18.2%) from the previous quarter, amounting to $15.1 million.
-                </p>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div className="bg-white p-8 rounded-lg shadow-md" variants={itemVariants}>
-            <div className="flex items-center mb-6">
-              <Users className="h-6 w-6 text-blue-500 mr-3" />
-              <h3 className="text-xl font-bold text-gray-900">Market Analysis</h3>
-            </div>
-            <p className="text-gray-700 mb-4">
-              In the third quarter of 2024, Bluescopepty achieved a solid growth trajectory driven by favorable market
-              conditions and higher sales prices across our portfolio, particularly in oil, agriculture, and real estate
-              tokenization investments.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Despite maintaining a positive outlook, the company experienced a slight price regression during this
-              period, primarily due to the expiration of higher-priced short-term contracts. These were replaced with
-              new contracts at lower rates, along with periodic pricing adjustments on certain agreements.
-            </p>
-            <p className="text-gray-700">
-              As of August 20, 2024, the company's liquidity remained robust at $442.7 million, comprising $268.4
-              million in cash and equivalents. This solid financial position underscores our commitment to long-term
-              investment growth and capital appreciation for our stakeholders.
-            </p>
-          </motion.div>
-        </motion.div>
-
         {/* CTA */}
         <motion.div
           className="mt-16 text-center"
@@ -299,14 +460,14 @@ export default function Reports() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <a
-            href="/financial-reports"
-            className="inline-flex items-center bg-blue-500 text-white px-8 py-3 rounded-md font-medium hover:bg-blue-600 transition-colors"
+          <Link
+            to="/financial-reports"
+            className="inline-flex items-center bg-[#1e56ff] text-white px-8 py-3 rounded-md font-medium hover:bg-blue-600 transition-colors"
           >
-            View Full Financial Report
-          </a>
+            View Full Financial Report <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </motion.div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }
