@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 export default function PhilanthropySection() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 bg-white overflow-x-hidden relative">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <motion.div
@@ -68,9 +68,9 @@ export default function PhilanthropySection() {
               </div>
             </div>
 
-            {/* Decorative elements */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#1e56ff]/10 rounded-lg -z-10"></div>
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#1e56ff]/10 rounded-lg -z-10"></div>
+            {/* Decorative elements - contained within parent */}
+            <div className="absolute bottom-0 right-0 translate-y-4 translate-x-4 w-24 h-24 bg-[#1e56ff]/10 rounded-lg -z-10"></div>
+            <div className="absolute top-0 left-0 -translate-y-4 -translate-x-4 w-16 h-16 bg-[#1e56ff]/10 rounded-lg -z-10"></div>
           </motion.div>
         </div>
       </div>

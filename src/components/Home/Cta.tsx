@@ -8,7 +8,7 @@ import cryptoGlass from '../../assets/Futuristic_Glass_Cube.png'
 const Cta: FC = () => {
   return (
     <section className="relative w-full py-16 md:py-24 overflow-hidden">
-      <div className="max-w-8xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ const Cta: FC = () => {
               >
                 <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-blue-50 transition-colors inline-flex items-center group">
                   Create an Account with Us
-                  <span className="ml-2 bg-blue-500 text-white rounded-full  p-3 group-hover:bg-blue-600 transition-colors">
+                  <span className="ml-2 bg-blue-500 text-white rounded-full p-3 group-hover:bg-blue-600 transition-colors">
                     <ArrowRight size={16} />
                   </span>
                 </button>
@@ -70,15 +70,15 @@ const Cta: FC = () => {
                   
                   {/* Placeholder for the device image */}
                   <img
-                    src={cryptoGlass}
+                    src={cryptoGlass || "/placeholder.svg"}
                     alt="Innovative device"
-                    className="relative z-10 max-h-[350px] object-contain"
+                    className="relative z-10 max-h-[350px] w-auto object-contain"
                   />
                 </div>
               </motion.div>
               
-              {/* Background elements */}
-              <div className="absolute bottom-0 right-0 opacity-20">
+              {/* Background elements - constrained */}
+              <div className="absolute bottom-0 right-0 opacity-20 max-w-full overflow-hidden">
                 <div className="text-white text-[120px] font-bold leading-none">
                   Blue—
                 </div>

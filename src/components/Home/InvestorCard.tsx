@@ -1,19 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Shield, Zap, TrendingUp } from "lucide-react"
+import { ArrowRight, Shield, Zap, TrendingUp } from 'lucide-react'
 import type { FC } from "react"
 
 const InvestorCard: FC = () => {
   return (
-    <section className="w-full py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className="w-full py-12 md:py-16 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden bg-gradient-to-r from-blue-700 to-blue-900 rounded-xl shadow-xl"
+          className="relative overflow-hidden bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl shadow-xl"
         >
           <div className="relative z-10 p-8 md:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -97,7 +97,7 @@ const InvestorCard: FC = () => {
             </div>
           </div>
 
-          {/* Background decorative elements */}
+          {/* Background decorative elements - constrained */}
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-500 rounded-full opacity-10"></div>
           <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-blue-500 rounded-full opacity-10"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-transparent to-blue-800 opacity-20"></div>

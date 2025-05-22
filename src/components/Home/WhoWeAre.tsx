@@ -6,12 +6,12 @@ import type { FC } from "react"
 const WhoWeAre: FC = () => {
   return (
     <section className="relative w-full py-16 md:py-24 bg-white overflow-hidden">
-      {/* Decorative Circles */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
-      <div className="absolute bottom-40 right-20 w-40 h-40 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
+      {/* Decorative Circles - constrained with max-width */}
+      <div className="absolute top-20 left-5 sm:left-20 w-32 h-32 bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute bottom-40 right-5 sm:right-20 w-40 h-40 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
       <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-300 rounded-full opacity-10 blur-2xl"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 space-y-16">
         {/* Header */}
         <div className="text-left space-y-6">
           <motion.h2
@@ -19,7 +19,7 @@ const WhoWeAre: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-xl md:text-4xl font-semibold leading-snug tracking-wide  text-gray-900 Poppins"
+            className="text-xl md:text-4xl font-semibold leading-snug tracking-wide text-gray-900 Poppins"
           >
             At Blue Scope Pty Ltd, <br />
             we safeguard and enhance your wealth <br />
